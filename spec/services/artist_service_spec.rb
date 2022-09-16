@@ -5,11 +5,9 @@ RSpec.describe 'ArtistService' do
     parsed_json = ArtistService.search_artist('the radiators')
 
     expect(parsed_json).to be_a Hash 
-    expect(pased_json[:artist]).to be_an Array 
 
-    sample_data = parsed_json[:artists].first
-
-    expect(sample_data).to include(:name, :bio, :summary, :tags, :tag, :name, :image, :"#text")
+    sample_data = parsed_json[:artist]
+    expect(sample_data).to be_a Hash 
 
     expect(sample_data[:name]).to be_a String
     expect(sample_data[:bio][:summary]).to be_a String
