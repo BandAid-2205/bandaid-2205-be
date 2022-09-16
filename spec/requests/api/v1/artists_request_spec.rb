@@ -1,6 +1,6 @@
 require 'rails_helper' 
 
-RSpec.describe 'Artists API' do 
+RSpec.describe 'Artist Search API' do 
   describe 'LastFM artist search by name' do 
     it 'sends a single Artist based on a query to the LastFM API' do
       # 1. make a GET request to our own Artists API 
