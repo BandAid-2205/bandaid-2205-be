@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.date :date
       t.time :start_time
       t.time :end_time
-      t.integer :booking_status
+      t.integer :booking_status, default: 0
       t.references :venue, foreign_key: true
 
       t.timestamps

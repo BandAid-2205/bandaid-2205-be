@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2022_09_16_010057) do
     t.date "date"
     t.time "start_time"
     t.time "end_time"
-    t.integer "booking_status"
+    t.integer "booking_status", default: 0
     t.bigint "venue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
