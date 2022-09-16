@@ -10,11 +10,14 @@ RSpec.describe 'Artist Search API' do
       get '/api/v1/lastfm/search?query=the%20dirty%20dozen%20brass%20band'
 
       expect(response).to be_successful 
+
       json = JSON.parse(response.body, symbolize_names: true)
 
       expect(json).to be_a(Hash)
 
       artist_data = json[:data]
+
+      binding.pry 
 
       expect(artist_data).to have_key(:type)
       expect(artist_data[:type]).to eq "artist_poro"
@@ -32,6 +35,13 @@ RSpec.describe 'Artist Search API' do
       expect(artist_data[:attributes][:image_path]).to eq 'https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png'
 
       # artist = Artist.create!(name: 'The Dirty Dozen Brass Band', location: 'New Orleans', bio: 'The Dirty Dozen Brass Band are a New Orleans style brass band which plays R&B and Traditional New Orleans music. Band Members include Charles Joseph, Keith Anderson, Roger Lewis, Kevin Harris, Lionel Batiste, Efrem Towns, Kirk Joseph, Jenell Marshall, Revert Andrews, Gregory Davis, and Raymond Weber. Original band formed in 1975.', genres: ['jazz', 'New Orleans', 'brass', 'funk'], image_path: "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png", user_id: 1)
+    end
+
+    it 'returns an error code if the artist does not exist in LastFM API' do 
+      get '/api/v1/lastfm/search?query=jfdksl'
+
+      expect(response).to have_http_status(404)
+      expect(response.body).to include("The artist you supplied could not be found")
     end
   end
 end
