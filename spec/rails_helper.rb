@@ -69,3 +69,11 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  config.hook_into :webmock
+  config.filter_sensitive_data('Hide_Yo_Keys') { ENV['yelp_api_key'] }
+  config.filter_sensitive_data('Hide_Yo_Kids') { ENV['last_fm_key'] }
+  config.configure_rspec_metadata!
+end

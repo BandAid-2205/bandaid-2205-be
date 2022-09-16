@@ -51,8 +51,8 @@ group :test do
   gem 'capybara'
   gem 'launchy' # save_and_open_page
   gem 'orderly'
-  # gem 'vcr'
-  # gem 'webmock'
+  gem 'vcr'
+  gem 'webmock'
 end 
 
 

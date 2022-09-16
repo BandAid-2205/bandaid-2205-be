@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe BusinessSearchService do 
-    describe 'Business Search Service' do 
+RSpec.describe VenueService, :vcr do 
+    describe 'Venue Service' do 
       context "#search_venue(music_venue, location)" do 
             it 'can search for different music venues by search term and location' do 
-                music_venue = BusinessSearchService.search_venue("music venue", "New Orleans")
+                music_venue = VenueService.search_venue("music venue", "New Orleans")
 
                 expect(music_venue).to be_a(Hash)
                 expect(music_venue).to have_key(:businesses)
@@ -16,7 +16,10 @@ RSpec.describe BusinessSearchService do
 
                 expect(music_venue_info).to have_key(:rating)
                 expect(music_venue_info[:rating]).to be_a(Float)
-                
+
+                expect(music_venue_info).to have_key(:price)
+                expect(music_venue_info[:price]).to be_a(String)
+
                 expect(music_venue_info).to have_key(:location)
                 expect(music_venue_info[:location]).to be_a(Hash)
                 expect(music_venue_info[:location][:city]).to be_a(String)
