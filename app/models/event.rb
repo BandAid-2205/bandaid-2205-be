@@ -6,7 +6,9 @@ class Event < ApplicationRecord
   validates_presence_of :booking_status
   validates_presence_of :venue_id
 
-  has_many :artist_events
+  has_many :artist_events, dependent: :destroy
   has_many :artists, through: :artist_events
   belongs_to :venue
+
+  enum status: { 'open' => 0, 'pending' => 1, 'booked' => 2 }
 end
