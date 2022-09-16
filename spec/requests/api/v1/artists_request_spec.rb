@@ -16,16 +16,14 @@ RSpec.describe 'Artist Search API' do
 
       artist_data = json[:data]
 
-      binding.pry 
-
       expect(artist_data).to have_key(:type)
-      expect(artist_data[:type]).to eq "artist_info"
+      expect(artist_data[:type]).to eq "artist_poro"
 
       expect(artist_data[:attributes]).to have_key(:name)
       expect(artist_data[:attributes][:name]).to eq 'The Dirty Dozen Brass Band'
 
       expect(artist_data[:attributes]).to have_key(:bio)
-      expect(artist_data[:attributes][:bio]).to eq 'The Dirty Dozen Brass Band are a New Orleans style brass band which plays R&B and Traditional New Orleans music. Band Members include Charles Joseph, Keith Anderson, Roger Lewis, Kevin Harris, Lionel Batiste, Efrem Towns, Kirk Joseph, Jenell Marshall, Revert Andrews, Gregory Davis, and Raymond Weber. Original band formed in 1975.'
+      expect(artist_data[:attributes][:bio]).to eq "The Dirty Dozen Brass Band are a New Orleans style brass band which plays R&B and Traditional New Orleans music. Band Members include Charles Joseph, Keith Anderson, Roger Lewis, Kevin Harris, Lionel Batiste, Efrem Towns, Kirk Joseph, Jenell Marshall, Revert Andrews, Gregory Davis, and Raymond Weber. Original band formed in 1975.\n\nThe Dirty Dozen Brass Band \n\nCelebrating over 40 years since their founding in 1977, New Orleans-based Dirty Dozen Brass <a href=\"https://www.last.fm/music/The+Dirty+Dozen+Brass+Band\">Read more on Last.fm</a>"
 
       expect(artist_data[:attributes]).to have_key(:genres)
       expect(artist_data[:attributes][:genres]).to include('jazz', 'New Orleans', 'brass', 'funk')

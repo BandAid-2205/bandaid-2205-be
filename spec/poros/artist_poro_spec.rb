@@ -9,6 +9,7 @@ RSpec.describe 'Artist Poro' do
     artist = ArtistPoro.new(data)
 
     expect(artist).to be_an ArtistPoro
+    expect(artist.id).to eq 1 
     expect(artist.name).to eq(data[:name])
     expect(artist.bio).to eq(data[:bio][:summary])
     tags = data[:tags][:tag].map { |tag| tag[:name] }
