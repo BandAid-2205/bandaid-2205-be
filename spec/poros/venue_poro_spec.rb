@@ -57,6 +57,7 @@ RSpec.describe 'Venue Poro' do
         expect(venue.name).to eq("The Spotted Cat Music Club")
         expect(venue.rating).to eq(4.5)
         expect(venue.price).to eq("$$")
+        expect(venue.category).to eq("Jazz & Blues")
         # expect(venue.address(data[:location]).to eq("623 Frenchmen St  New Orleans, LA 70116")
         expect(venue.location).to eq("623 Frenchmen St  New Orleans, LA 70116")
     end 
