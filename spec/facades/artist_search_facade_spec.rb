@@ -6,4 +6,10 @@ RSpec.describe 'ArtistSearchFacade' do
 
     expect(artist_info).to be_an ArtistPoro
   end
+
+  it 'returns an error message if artist is not returned', :vcr do 
+    artist_info = ArtistSearchFacade.artist_search('fjdks')
+
+    expect(artist_info).to eq({:error => 6, :message => "The artist you supplied could not be found", :links  =>[]})
+  end
 end
