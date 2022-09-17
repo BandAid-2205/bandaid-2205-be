@@ -5,11 +5,7 @@ class ArtistPoro
     @id = 1 
     @name = data[:name]
     @bio = data[:bio][:summary]
-    @genres = get_genres(data[:tags][:tag])
+    @genres = data[:tags][:tag].first[:name]
     @image_path = data[:image][2][:"#text"]
-  end
-
-  def get_genres(tags)
-    tags.map { |tag| tag[:name] }
   end
 end

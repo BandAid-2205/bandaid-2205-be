@@ -1,7 +1,8 @@
 class Api::V1::VenuesController < ApplicationController 
   def create
     binding.pry 
-    test = render json: Venue.create!(venue_params)
+    venue = Venue.create!(venue_params)
+    test = render json: venue 
     binding.pry 
   end
 
