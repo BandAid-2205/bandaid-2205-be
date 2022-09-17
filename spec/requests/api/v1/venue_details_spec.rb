@@ -4,22 +4,24 @@ RSpec.describe 'Venue Details' do
 
   describe 'Venue Details Create' do 
     it 'creates a new set of Venue details tied to a User' do 
-      venue_1 = create(:venue)
-
+      # venue_1 = create(:venue)
       venue_params = ({
-                        name: venue_1.name, 
-                        location: venue_1.location, 
-                        phone: venue_1.phone, 
-                        price: venue_1.price, 
-                        category: venue_1.category, 
-                        rating: venue_1.rating, 
-                        user_id: venue_1.user_id
+                        name: Faker::Company.name, 
+                        location: Faker::Address.full_address, 
+                        phone: Faker::PhoneNumber.cell_phone, 
+                        price: ['$', '$$', '$$$', '$$$$'].sample, 
+                        category: rand(1..3).times.map { Faker::Company.industry }, 
+                        rating: Faker::Number.within(range: 1..5), 
+                        user_id: Faker::Number.within(range: 50..75)
                       })
+
       headers = {"CONTENT_TYPE" => "application/json"}
 
       post "/api/v1/venues", headers: headers, params: JSON.generate(venue: venue_params)
 
       created_venue = Venue.last 
+
+      binding.pry 
 
       expect(response).to be_successful 
       expect(created_venue.name).to eq(venue_params[:name])
@@ -58,4 +60,5 @@ RSpec.describe 'Venue Details' do
       expect(response).to have_http_status(404)
       expect(response.body).to include("The venue must have a name")
     end
+  end 
 end

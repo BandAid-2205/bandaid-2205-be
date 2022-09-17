@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2022_09_16_010057) do
     t.string "name"
     t.string "location"
     t.text "bio"
-    t.string "genres", array: true
+    t.string "genres"
     t.string "image_path"
     t.integer "user_id"
     t.datetime "created_at", null: false
