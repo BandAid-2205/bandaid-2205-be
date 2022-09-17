@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Artist Search API' do 
   describe 'LastFM artist search by name' do 
-    it 'sends a single Artist based on a query to the LastFM API' do
+    it 'sends a single Artist based on a query to the LastFM API', :vcr do
       # 1. make a GET request to our own Artists API 
       # 2. in the controller, pull from LastFM API and return ArtistPoro objects 
       # 3. serialize the ArtistPoro objects 
@@ -35,7 +35,7 @@ RSpec.describe 'Artist Search API' do
       # artist = Artist.create!(name: 'The Dirty Dozen Brass Band', location: 'New Orleans', bio: 'The Dirty Dozen Brass Band are a New Orleans style brass band which plays R&B and Traditional New Orleans music. Band Members include Charles Joseph, Keith Anderson, Roger Lewis, Kevin Harris, Lionel Batiste, Efrem Towns, Kirk Joseph, Jenell Marshall, Revert Andrews, Gregory Davis, and Raymond Weber. Original band formed in 1975.', genres: ['jazz', 'New Orleans', 'brass', 'funk'], image_path: "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png", user_id: 1)
     end
 
-    it 'returns an error code if the artist does not exist in LastFM API' do 
+    it 'returns an error code if the artist does not exist in LastFM API', :vcr do 
       get '/api/v1/lastfm/search?query=jfdksl'
 
       expect(response).to have_http_status(404)

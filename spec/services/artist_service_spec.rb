@@ -1,7 +1,7 @@
 require 'rails_helper' 
 
-RSpec.describe 'ArtistService', :vcr do 
-  it 'retrieves Artist data that matches search query' do 
+RSpec.describe 'ArtistService' do 
+  it 'retrieves Artist data that matches search query', :vcr do 
     parsed_json = ArtistService.search_artist('the radiators')
 
     expect(parsed_json).to be_a Hash 
