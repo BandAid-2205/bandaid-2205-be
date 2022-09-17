@@ -10,7 +10,7 @@ RSpec.describe 'Venue Details' do
                         location: Faker::Address.full_address, 
                         phone: Faker::PhoneNumber.cell_phone, 
                         price: ['$', '$$', '$$$', '$$$$'].sample, 
-                        category: rand(1..3).times.map { Faker::Company.industry }, 
+                        category: Faker::Company.industry, 
                         rating: Faker::Number.within(range: 1..5), 
                         user_id: Faker::Number.within(range: 50..75)
                       })
@@ -42,16 +42,15 @@ RSpec.describe 'Venue Details' do
     end
 
     it 'returns an error if user does not enter correct info' do 
-      venue_1 = create(:venue)
 
       venue_params = ({
-                        name: '', 
-                        location: venue_1.location, 
-                        phone: venue_1.phone, 
-                        price: venue_1.price, 
-                        category: venue_1.category, 
-                        rating: venue_1.rating, 
-                        user_id: venue_1.user_id
+                        name: Faker::Company.name, 
+                        location: Faker::Address.full_address, 
+                        phone: Faker::PhoneNumber.cell_phone, 
+                        price: ['$', '$$', '$$$', '$$$$'].sample, 
+                        category: Faker::Company.industry, 
+                        rating: Faker::Number.within(range: 1..5), 
+                        user_id: Faker::Number.within(range: 50..75)
                       })
       headers = {"CONTENT_TYPE" => "application/json"}
 
