@@ -26,3 +26,6 @@ coverage
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore fixtures/vcr_cassettes
+/spec/fixtures/vcr_cassettes
