@@ -7,6 +7,9 @@ RSpec.describe Event, type: :model do
     it { should validate_presence_of :start_time }
     it { should validate_presence_of :end_time }
     it { should validate_presence_of :booking_status }
+    it { should allow_value('open').for(:booking_status) }
+    it { should allow_value('pending').for(:booking_status) }
+    it { should allow_value('booked').for(:booking_status) }
     it { should validate_presence_of :venue_id }
   end
 

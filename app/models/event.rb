@@ -10,5 +10,5 @@ class Event < ApplicationRecord
   has_many :artists, through: :artist_events
   belongs_to :venue
 
-  enum status: { 'open' => 0, 'pending' => 1, 'booked' => 2 }
+  enum booking_status: { 'open' => 0, 'pending' => 1, 'booked' => 2 }
 end
