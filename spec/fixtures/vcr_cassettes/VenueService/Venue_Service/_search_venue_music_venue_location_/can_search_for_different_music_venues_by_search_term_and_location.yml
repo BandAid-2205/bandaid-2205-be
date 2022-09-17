@@ -124,6 +124,7 @@ http_interactions:
         false, "url": "https://www.yelp.com/biz/le-bon-temps-roule-new-orleans?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
         "review_count": 136, "categories": [{"alias": "bars", "title": "Bars"}, {"alias":
         "musicvenues", "title": "Music Venues"}], "rating": 4.0, "coordinates": {"latitude":
+        29.92061, "longitude": -90.10626}, "transactions": ["pickup", "delivery"],
         29.92061, "longitude": -90.10626}, "transactions": ["delivery", "pickup"],
         "price": "$", "location": {"address1": "4801 Magazine St", "address2": "",
         "address3": "", "city": "New Orleans", "zip_code": "70115", "country": "US",
@@ -271,7 +272,8 @@ http_interactions:
         "", "city": "New Orleans", "zip_code": "70116", "country": "US", "state":
         "LA", "display_address": ["1331 Decatur St", "New Orleans, LA 70116"]}, "phone":
         "+15043015912", "display_phone": "(504) 301-5912", "distance": 2530.185658867711}],
+        "total": 601, "region": {"center": {"longitude": -90.08377075195312, "latitude":
+        29.956084336405493}}}'
         "total": 602, "region": {"center": {"longitude": -90.08377075195312, "latitude":
         29.956084336405493}}}'
-  recorded_at: Sat, 17 Sep 2022 00:34:44 GMT
 recorded_with: VCR 6.1.0
