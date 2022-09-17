@@ -41,36 +41,5 @@ RSpec.describe 'Artist Search API' do
       expect(response).to have_http_status(404)
       expect(response.body).to include("The artist you supplied could not be found")
     end
-
-    it 'finds Artist by name case insensitive' do
-      artist = create(:artist)
-
-      get "/api/v1/artists/search?query=#{artist.name.downcase}"
-
-      response_body = JSON.parse(response.body, symbolize_names: true)
-      result = response_body[:data]
-
-      expect(result).to have_key(:id)
-      expect(result[:id]).to be_a(String)
-
-      expect(result).to have_key(:attributes)
-      expect(result[:attributes][:name]).to eq("#{artist.name}")
-
-      expect(result[:attributes]).to have_key(:bio)
-      expect(result[:attributes][:bio]).to eq("#{artist.bio}")
-
-      expect(result[:attributes]).to have_key(:genres)
-      expect(result[:attributes][:genres]).to be_a Array
-      # expect(result[:attributes][:genres]).to eq("#{artist.genres}")
-
-      expect(result[:attributes]).to have_key(:image_path)
-      expect(result[:attributes][:image_path]).to eq("#{artist.image_path}")
-
-      expect(result[:attributes]).to have_key(:user_id)
-      expect(result[:attributes][:user_id]).to be_a Integer
-      # expect(result[:attributes][:user_id]).to eq("#{artist.user_id}")
-
-      expect(result[:attributes]).to_not have_key(:created_at)
-    end
   end
 end
