@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe 'Artist Search API' do 
-  describe 'LastFM artist search by name' do 
+RSpec.describe 'Artist Search API' do
+  describe 'LastFM artist search by name' do
     it 'sends a single Artist based on a query to the LastFM API', :vcr do
-      # 1. make a GET request to our own Artists API 
-      # 2. in the controller, pull from LastFM API and return ArtistPoro objects 
-      # 3. serialize the ArtistPoro objects 
+      # 1. make a GET request to our own Artists API
+      # 2. in the controller, pull from LastFM API and return ArtistPoro objects
+      # 3. serialize the ArtistPoro objects
 
       get '/api/v1/lastfm/search?query=the%20dirty%20dozen%20brass%20band'
 
-      expect(response).to be_successful 
+      expect(response).to be_successful
 
       json = JSON.parse(response.body, symbolize_names: true)
 
@@ -35,31 +35,42 @@ RSpec.describe 'Artist Search API' do
       # artist = Artist.create!(name: 'The Dirty Dozen Brass Band', location: 'New Orleans', bio: 'The Dirty Dozen Brass Band are a New Orleans style brass band which plays R&B and Traditional New Orleans music. Band Members include Charles Joseph, Keith Anderson, Roger Lewis, Kevin Harris, Lionel Batiste, Efrem Towns, Kirk Joseph, Jenell Marshall, Revert Andrews, Gregory Davis, and Raymond Weber. Original band formed in 1975.', genres: ['jazz', 'New Orleans', 'brass', 'funk'], image_path: "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png", user_id: 1)
     end
 
-
-    it 'finds Artist by name' do
-      create_list(:artist, 5)
-
-      artist1 = Artist.first
-      artist2 = Artist.second
-      artist3 = Artist.third
-      artist4 = Artist.fourth
-      artist5 = Artist.fifth
-
-      get "/api/v1/artists/search?query=#{artist2.name}"
-      response_body = JSON.parse(response.body, symbolize_names: true)
-      artist = response_body[:data]
-
-      expect(artist).to have_key(:id)
-      expect(artist[:id]).to be_a(String)
-      
-      expect(artist).to have_key(:attributes)
-    end 
-    
-    it 'returns an error code if the artist does not exist in LastFM API', :vcr do 
+    it 'returns an error code if the artist does not exist in LastFM API', :vcr do
       get '/api/v1/lastfm/search?query=jfdksl'
 
       expect(response).to have_http_status(404)
       expect(response.body).to include("The artist you supplied could not be found")
+    end
+
+    it 'finds Artist by name case insensitive' do
+      artist = create(:artist)
+
+      get "/api/v1/artists/search?query=#{artist.name.downcase}"
+
+      response_body = JSON.parse(response.body, symbolize_names: true)
+      result = response_body[:data]
+
+      expect(result).to have_key(:id)
+      expect(result[:id]).to be_a(String)
+
+      expect(result).to have_key(:attributes)
+      expect(result[:attributes][:name]).to eq("#{artist.name}")
+
+      expect(result[:attributes]).to have_key(:bio)
+      expect(result[:attributes][:bio]).to eq("#{artist.bio}")
+
+      expect(result[:attributes]).to have_key(:genres)
+      expect(result[:attributes][:genres]).to be_a Array
+      # expect(result[:attributes][:genres]).to eq("#{artist.genres}")
+
+      expect(result[:attributes]).to have_key(:image_path)
+      expect(result[:attributes][:image_path]).to eq("#{artist.image_path}")
+
+      expect(result[:attributes]).to have_key(:user_id)
+      expect(result[:attributes][:user_id]).to be_a Integer
+      # expect(result[:attributes][:user_id]).to eq("#{artist.user_id}")
+
+      expect(result[:attributes]).to_not have_key(:created_at)
     end
   end
 end
