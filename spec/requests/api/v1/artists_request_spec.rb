@@ -36,15 +36,16 @@ RSpec.describe 'Artist Search API' do
 
     it 'finds Artist by name' do
       create_list(:artist, 5)
+
       artist1 = Artist.first
       artist2 = Artist.second
       artist3 = Artist.third
       artist4 = Artist.fourth
       artist5 = Artist.fifth
 
-      get "/api/v1/lastfm/search?query=#{artist2.name}"
+      get "/api/v1/artists/search?query=#{artist2.name}"
       response_body = JSON.parse(response.body, symbolize_names: true)
-      artist = item = response_body[:data]
+      artist = response_body[:data]
 
       expect(artist).to have_key(:id)
       expect(artist[:id]).to be_a(String)
