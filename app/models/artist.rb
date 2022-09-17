@@ -8,4 +8,6 @@ class Artist < ApplicationRecord
 
   has_many :artist_events, dependent: :destroy
   has_many :events, through: :artist_events
+
+  scope :find_artist,  -> (name) {where('name ILIKE ?', "%#{name}%")}
 end
