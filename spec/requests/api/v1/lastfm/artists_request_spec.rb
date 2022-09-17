@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe 'Artist Search API' do
-  describe 'LastFM artist search by name' do
+RSpec.describe 'Artist Search API' do 
+  describe 'LastFM artist search by name' do 
     it 'sends a single Artist based on a query to the LastFM API', :vcr do
-      # 1. make a GET request to our own Artists API
-      # 2. in the controller, pull from LastFM API and return ArtistPoro objects
-      # 3. serialize the ArtistPoro objects
+      # 1. make a GET request to our own Artists API 
+      # 2. in the controller, pull from LastFM API and return ArtistPoro objects 
+      # 3. serialize the ArtistPoro objects 
 
       get '/api/v1/lastfm/search?query=the%20dirty%20dozen%20brass%20band'
 
-      expect(response).to be_successful
+      expect(response).to be_successful 
 
       json = JSON.parse(response.body, symbolize_names: true)
 
