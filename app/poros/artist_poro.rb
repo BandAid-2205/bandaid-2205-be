@@ -1,7 +1,8 @@
 class ArtistPoro
-  attr_reader :name, :bio, :genres, :image_path
+  attr_reader :id, :name, :bio, :genres, :image_path
 
   def initialize(data)
+    @id = 1 
     @name = data[:name]
     @bio = data[:bio][:summary]
     @genres = get_genres(data[:tags][:tag])

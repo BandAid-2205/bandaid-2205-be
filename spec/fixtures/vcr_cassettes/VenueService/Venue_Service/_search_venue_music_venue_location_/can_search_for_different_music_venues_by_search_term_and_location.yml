@@ -24,38 +24,38 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
-      Ratelimit-Remaining:
-      - '4998'
-      Ratelimit-Resettime:
-      - '2022-09-18T00:00:00+00:00'
-      X-Routing-Service:
-      - routing-canary--uswest2-75476dc786-bcl4b; site=public_api_v3
-      X-B3-Sampled:
-      - '0'
-      Server:
-      - envoy
-      X-Zipkin-Id:
-      - cd3bafef2c5877e1
       Ratelimit-Dailylimit:
       - '5000'
+      Ratelimit-Remaining:
+      - '4999'
+      Ratelimit-Resettime:
+      - '2022-09-18T00:00:00+00:00'
+      X-B3-Sampled:
+      - '0'
+      X-Zipkin-Id:
+      - 322d7ef11fbd2e8c
+      Server:
+      - envoy
+      X-Routing-Service:
+      - routing-main--useast1-7955d89dc6-grd9s; site=public_api_v3
       X-Cloudmap:
-      - routing_uswest2
+      - routing_useast1
       X-Mode:
       - ro
       X-Proxied:
-      - 10-69-126-17-uswest2aprod
+      - 10-65-85-173-useast1aprod
       X-Extlb:
-      - 10-69-126-17-uswest2aprod
+      - 10-65-85-173-useast1aprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Sat, 17 Sep 2022 01:37:36 GMT
+      - Sat, 17 Sep 2022 00:34:44 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8266-DEN
+      - cache-dfw-kdfw8210028-DFW
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -125,6 +125,7 @@ http_interactions:
         "review_count": 136, "categories": [{"alias": "bars", "title": "Bars"}, {"alias":
         "musicvenues", "title": "Music Venues"}], "rating": 4.0, "coordinates": {"latitude":
         29.92061, "longitude": -90.10626}, "transactions": ["pickup", "delivery"],
+        29.92061, "longitude": -90.10626}, "transactions": ["delivery", "pickup"],
         "price": "$", "location": {"address1": "4801 Magazine St", "address2": "",
         "address3": "", "city": "New Orleans", "zip_code": "70115", "country": "US",
         "state": "LA", "display_address": ["4801 Magazine St", "New Orleans, LA 70115"]},
@@ -164,7 +165,7 @@ http_interactions:
         "review_count": 508, "categories": [{"alias": "musicvenues", "title": "Music
         Venues"}, {"alias": "venues", "title": "Venues & Event Spaces"}, {"alias":
         "bars", "title": "Bars"}], "rating": 3.5, "coordinates": {"latitude": 29.953432,
-        "longitude": -90.066268}, "transactions": ["pickup", "delivery"], "price":
+        "longitude": -90.066268}, "transactions": ["delivery", "pickup"], "price":
         "$$", "location": {"address1": "225 Decatur St", "address2": "", "address3":
         "", "city": "New Orleans", "zip_code": "70130", "country": "US", "state":
         "LA", "display_address": ["225 Decatur St", "New Orleans, LA 70130"]}, "phone":
@@ -273,5 +274,6 @@ http_interactions:
         "+15043015912", "display_phone": "(504) 301-5912", "distance": 2530.185658867711}],
         "total": 601, "region": {"center": {"longitude": -90.08377075195312, "latitude":
         29.956084336405493}}}'
-  recorded_at: Sat, 17 Sep 2022 01:37:36 GMT
+        "total": 602, "region": {"center": {"longitude": -90.08377075195312, "latitude":
+        29.956084336405493}}}'
 recorded_with: VCR 6.1.0
