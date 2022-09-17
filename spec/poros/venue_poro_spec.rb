@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Venue Poro' do 
     it 'exists and has the correct venue attributes' do 
-        
         data = {
             "id": "RvTHIKHaPVVp8S9cihpi5w",
             "alias": "the-spotted-cat-music-club-new-orleans",
@@ -57,7 +56,9 @@ RSpec.describe 'Venue Poro' do
         expect(venue.name).to eq("The Spotted Cat Music Club")
         expect(venue.rating).to eq(4.5)
         expect(venue.price).to eq("$$")
-        # expect(venue.address(data[:location]).to eq("623 Frenchmen St  New Orleans, LA 70116")
+        expect(venue.phone).to be_a(String)
+        categories = data[:categories].map { |category| category[:title] }
+        expect(venue.category).to eq(categories)
         expect(venue.location).to eq("623 Frenchmen St  New Orleans, LA 70116")
     end 
 end 
