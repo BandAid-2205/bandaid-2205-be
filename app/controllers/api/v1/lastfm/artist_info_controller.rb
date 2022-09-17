@@ -22,4 +22,4 @@ class Api::V1::Lastfm::ArtistInfoController < ApplicationController
         render json: object[:message], status: 404
       end
   end
-end 
+
