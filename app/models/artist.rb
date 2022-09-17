@@ -1,9 +1,9 @@
 class Artist < ApplicationRecord
   validates_presence_of :name
   validates_presence_of :location
-  validates_presence_of :bio
-  validates_presence_of :genres
-  validates_presence_of :image_path
+  validate :bio # optional
+  validates_presence_of :genres # check boxes (select all that apply) 
+  validate :image_path # optional 
   validates_presence_of :user_id
 
   has_many :artist_events, dependent: :destroy
