@@ -1,0 +1,278 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.yelp.com/v3/businesses/search?location=New%20Orleans&term=music%20venue
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Hide_Yo_Keys
+      User-Agent:
+      - Faraday v2.5.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      X-Routing-Service:
+      - routing-main--useast1-7955d89dc6-xvcdc; site=public_api_v3
+      X-B3-Sampled:
+      - '0'
+      Server:
+      - envoy
+      Ratelimit-Dailylimit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4970'
+      X-Zipkin-Id:
+      - 454de91b25823897
+      Ratelimit-Resettime:
+      - '2022-09-17T00:00:00+00:00'
+      X-Cloudmap:
+      - routing_useast1
+      X-Mode:
+      - ro
+      X-Proxied:
+      - 10-65-164-1-useast1bprod
+      X-Extlb:
+      - 10-65-164-1-useast1bprod
+      Cache-Control:
+      - max-age=0, no-store, private, no-transform
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Fri, 16 Sep 2022 20:53:50 GMT
+      Via:
+      - 1.1 varnish
+      X-Served-By:
+      - cache-dfw-kdfw8210022-DFW
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"businesses": [{"id": "RvTHIKHaPVVp8S9cihpi5w", "alias": "the-spotted-cat-music-club-new-orleans",
+        "name": "The Spotted Cat Music Club", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/kcOgu2eDQbJne56DWvJ_qQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/the-spotted-cat-music-club-new-orleans?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 918, "categories": [{"alias": "jazzandblues", "title": "Jazz
+        & Blues"}, {"alias": "bars", "title": "Bars"}, {"alias": "musicvenues", "title":
+        "Music Venues"}], "rating": 4.5, "coordinates": {"latitude": 29.964090152963,
+        "longitude": -90.057709682929}, "transactions": [], "price": "$$", "location":
+        {"address1": "623 Frenchmen St", "address2": "", "address3": "", "city": "New
+        Orleans", "zip_code": "70116", "country": "US", "state": "LA", "display_address":
+        ["623 Frenchmen St", "New Orleans, LA 70116"]}, "phone": "", "display_phone":
+        "", "distance": 2663.776254165871}, {"id": "m5-FtgWRd4qA7j0vaOXiXQ", "alias":
+        "preservation-hall-new-orleans-2", "name": "Preservation Hall", "image_url":
+        "https://s3-media1.fl.yelpcdn.com/bphoto/eZNxeXnN9CHBiwqYkBHI-A/o.jpg", "is_closed":
+        false, "url": "https://www.yelp.com/biz/preservation-hall-new-orleans-2?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 779, "categories": [{"alias": "musicvenues", "title": "Music
+        Venues"}, {"alias": "jazzandblues", "title": "Jazz & Blues"}, {"alias": "venues",
+        "title": "Venues & Event Spaces"}], "rating": 4.5, "coordinates": {"latitude":
+        29.95830521832216, "longitude": -90.06542615417688}, "transactions": [], "price":
+        "$$", "location": {"address1": "726 Saint Peter St", "address2": "", "address3":
+        "", "city": "New Orleans", "zip_code": "70116", "country": "US", "state":
+        "LA", "display_address": ["726 Saint Peter St", "New Orleans, LA 70116"]},
+        "phone": "+15045222841", "display_phone": "(504) 522-2841", "distance": 1784.4710061646597},
+        {"id": "VHnxcKRk0qGxnW1jgVdwGw", "alias": "tipitinas-new-orleans-2", "name":
+        "Tipitina''s", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/0SDqGz4Xx3HvrdIXMAFhyw/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/tipitinas-new-orleans-2?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 154, "categories": [{"alias": "musicvenues", "title": "Music
+        Venues"}], "rating": 4.5, "coordinates": {"latitude": 29.91742, "longitude":
+        -90.1008}, "transactions": [], "price": "$$", "location": {"address1": "501
+        Napoleon Ave", "address2": "", "address3": "", "city": "New Orleans", "zip_code":
+        "70115", "country": "US", "state": "LA", "display_address": ["501 Napoleon
+        Ave", "New Orleans, LA 70115"]}, "phone": "+15048958477", "display_phone":
+        "(504) 895-8477", "distance": 4602.278825374028}, {"id": "7kHvPCBSmRgzDgjO9xXT1g",
+        "alias": "d-b-a-new-orleans-new-orleans-3", "name": "D.B.A. New Orleans",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/inD-KbzD3Ze6AdO6wkztlQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/d-b-a-new-orleans-new-orleans-3?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 460, "categories": [{"alias": "jazzandblues", "title": "Jazz
+        & Blues"}, {"alias": "bars", "title": "Bars"}], "rating": 4.0, "coordinates":
+        {"latitude": 29.9639896889839, "longitude": -90.057860530904}, "transactions":
+        [], "price": "$$", "location": {"address1": "618 Frenchmen St", "address2":
+        null, "address3": "", "city": "New Orleans", "zip_code": "70116", "country":
+        "US", "state": "LA", "display_address": ["618 Frenchmen St", "New Orleans,
+        LA 70116"]}, "phone": "+15049423731", "display_phone": "(504) 942-3731", "distance":
+        2646.3536562736585}, {"id": "v77_hh7gsbpSpjlzSKeq5w", "alias": "one-eyed-jacks-new-orleans",
+        "name": "One Eyed Jacks", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/MKYfkSnrwuS_-NbAnncLVA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/one-eyed-jacks-new-orleans?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 133, "categories": [{"alias": "bars", "title": "Bars"}, {"alias":
+        "musicvenues", "title": "Music Venues"}, {"alias": "danceclubs", "title":
+        "Dance Clubs"}], "rating": 4.0, "coordinates": {"latitude": 29.9599924, "longitude":
+        -90.05960569999999}, "transactions": [], "price": "$$", "location": {"address1":
+        "1104 Decatur St", "address2": null, "address3": "", "city": "New Orleans",
+        "zip_code": "70116", "country": "US", "state": "LA", "display_address": ["1104
+        Decatur St", "New Orleans, LA 70116"]}, "phone": "+15045698361", "display_phone":
+        "(504) 569-8361", "distance": 2368.2286708906977}, {"id": "9eK2AZIHk8PGoVCwbwjorA",
+        "alias": "the-fillmore-new-orleans-new-orleans-3", "name": "The Fillmore New
+        Orleans", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/3WRT98wHGjQq9KLn6FjjQA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/the-fillmore-new-orleans-new-orleans-3?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 35, "categories": [{"alias": "musicvenues", "title": "Music
+        Venues"}, {"alias": "venues", "title": "Venues & Event Spaces"}], "rating":
+        4.0, "coordinates": {"latitude": 29.9495273018838, "longitude": -90.065109},
+        "transactions": [], "location": {"address1": "6 Canal St", "address2": null,
+        "address3": "", "city": "New Orleans", "zip_code": "70130", "country": "US",
+        "state": "LA", "display_address": ["6 Canal St", "New Orleans, LA 70130"]},
+        "phone": "+15048811555", "display_phone": "(504) 881-1555", "distance": 1940.146194216109},
+        {"id": "rGpDkBpwiuhgxOdBqol1Iw", "alias": "le-bon-temps-roule-new-orleans",
+        "name": "Le Bon Temps Roule", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/_3M0JCDC9l7jcMzcQcLAvg/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/le-bon-temps-roule-new-orleans?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 136, "categories": [{"alias": "bars", "title": "Bars"}, {"alias":
+        "musicvenues", "title": "Music Venues"}], "rating": 4.0, "coordinates": {"latitude":
+        29.92061, "longitude": -90.10626}, "transactions": ["delivery", "pickup"],
+        "price": "$", "location": {"address1": "4801 Magazine St", "address2": "",
+        "address3": "", "city": "New Orleans", "zip_code": "70115", "country": "US",
+        "state": "LA", "display_address": ["4801 Magazine St", "New Orleans, LA 70115"]},
+        "phone": "+15048958117", "display_phone": "(504) 895-8117", "distance": 4507.930589990989},
+        {"id": "dSv7qHrkYF4nmQQA0QRP_g", "alias": "maple-leaf-bar-new-orleans", "name":
+        "Maple Leaf Bar", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/tWsuwz1Pw_zr9d4xsO_PYQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/maple-leaf-bar-new-orleans?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 241, "categories": [{"alias": "bars", "title": "Bars"}, {"alias":
+        "musicvenues", "title": "Music Venues"}], "rating": 4.0, "coordinates": {"latitude":
+        29.94891, "longitude": -90.13211}, "transactions": [], "price": "$", "location":
+        {"address1": "8316 Oak St", "address2": "", "address3": "", "city": "New Orleans",
+        "zip_code": "70118", "country": "US", "state": "LA", "display_address": ["8316
+        Oak St", "New Orleans, LA 70118"]}, "phone": "+15048669359", "display_phone":
+        "(504) 866-9359", "distance": 4722.00347399218}, {"id": "GIo6CTonm96GbnHqLsw04g",
+        "alias": "house-of-blues-new-orleans-new-orleans", "name": "House of Blues
+        New Orleans", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/B0GDIon_OgxsPMmPCqrvwg/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/house-of-blues-new-orleans-new-orleans?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 508, "categories": [{"alias": "musicvenues", "title": "Music
+        Venues"}, {"alias": "venues", "title": "Venues & Event Spaces"}, {"alias":
+        "bars", "title": "Bars"}], "rating": 3.5, "coordinates": {"latitude": 29.953432,
+        "longitude": -90.066268}, "transactions": ["delivery", "pickup"], "price":
+        "$$", "location": {"address1": "225 Decatur St", "address2": "", "address3":
+        "", "city": "New Orleans", "zip_code": "70130", "country": "US", "state":
+        "LA", "display_address": ["225 Decatur St", "New Orleans, LA 70130"]}, "phone":
+        "+15043104999", "display_phone": "(504) 310-4999", "distance": 1712.042927585035},
+        {"id": "SmeMEWPwb5vl4m0UbYnugA", "alias": "blue-nile-new-orleans", "name":
+        "Blue Nile", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/6zG6SnWgq2NTRTJt8XgNVA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/blue-nile-new-orleans?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 248, "categories": [{"alias": "bars", "title": "Bars"}, {"alias":
+        "musicvenues", "title": "Music Venues"}], "rating": 4.0, "coordinates": {"latitude":
+        29.96318, "longitude": -90.05789}, "transactions": [], "price": "$$", "location":
+        {"address1": "534 Frenchmen St", "address2": "", "address3": "", "city": "New
+        Orleans", "zip_code": "70116", "country": "US", "state": "LA", "display_address":
+        ["534 Frenchmen St", "New Orleans, LA 70116"]}, "phone": "+15049482583", "display_phone":
+        "(504) 948-2583", "distance": 2615.1972642575556}, {"id": "232qg1k9QV0pNt90jyTatA",
+        "alias": "maison-bourbon-new-orleans", "name": "Maison Bourbon", "image_url":
+        "https://s3-media3.fl.yelpcdn.com/bphoto/vyLl5HriPPW1XEprvQHdaw/o.jpg", "is_closed":
+        false, "url": "https://www.yelp.com/biz/maison-bourbon-new-orleans?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 202, "categories": [{"alias": "jazzandblues", "title": "Jazz
+        & Blues"}, {"alias": "bars", "title": "Bars"}, {"alias": "musicvenues", "title":
+        "Music Venues"}], "rating": 4.0, "coordinates": {"latitude": 29.9586181640625,
+        "longitude": -90.0658645629883}, "transactions": [], "price": "$$", "location":
+        {"address1": "641 Bourbon St", "address2": "", "address3": "", "city": "New
+        Orleans", "zip_code": "70130", "country": "US", "state": "LA", "display_address":
+        ["641 Bourbon St", "New Orleans, LA 70130"]}, "phone": "+15045228818", "display_phone":
+        "(504) 522-8818", "distance": 1747.923736139635}, {"id": "JLixvCikc5JYGcnvaqHoJg",
+        "alias": "21st-amendment-at-la-louisiane-new-orleans", "name": "21st Amendment
+        at La Louisiane", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/_4eWM8b6uMLiB-OlZo59jA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/21st-amendment-at-la-louisiane-new-orleans?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 420, "categories": [{"alias": "bars", "title": "Bars"}], "rating":
+        4.5, "coordinates": {"latitude": 29.95453, "longitude": -90.06865}, "transactions":
+        [], "price": "$$", "location": {"address1": "725 Iberville St", "address2":
+        "", "address3": "", "city": "New Orleans", "zip_code": "70130", "country":
+        "US", "state": "LA", "display_address": ["725 Iberville St", "New Orleans,
+        LA 70130"]}, "phone": "+15043787330", "display_phone": "(504) 378-7330", "distance":
+        1466.9633265876387}, {"id": "g1xRzUV-aLjAE4mkdhLwBQ", "alias": "vaughans-lounge-new-orleans",
+        "name": "Vaughan''s Lounge", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/xFdzuqNCr9i7Gs39f_8DbQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/vaughans-lounge-new-orleans?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 107, "categories": [{"alias": "divebars", "title": "Dive Bars"},
+        {"alias": "musicvenues", "title": "Music Venues"}], "rating": 4.0, "coordinates":
+        {"latitude": 29.9618105, "longitude": -90.0335351}, "transactions": [], "price":
+        "$", "location": {"address1": "800 Lesseps St", "address2": "", "address3":
+        "", "city": "New Orleans", "zip_code": "70117", "country": "US", "state":
+        "LA", "display_address": ["800 Lesseps St", "New Orleans, LA 70117"]}, "phone":
+        "+15049475562", "display_phone": "(504) 947-5562", "distance": 4881.27423434582},
+        {"id": "2S_CEQYBbp8RO1bJm_1mng", "alias": "the-saint-new-orleans", "name":
+        "The Saint", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/5LdSLVi6lZ8LnwfUQtq5HA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/the-saint-new-orleans?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 117, "categories": [{"alias": "divebars", "title": "Dive Bars"}],
+        "rating": 4.0, "coordinates": {"latitude": 29.931150181928885, "longitude":
+        -90.07320971423002}, "transactions": [], "price": "$", "location": {"address1":
+        "961 St Mary St", "address2": "", "address3": "", "city": "New Orleans", "zip_code":
+        "70130", "country": "US", "state": "LA", "display_address": ["961 St Mary
+        St", "New Orleans, LA 70130"]}, "phone": "+15045230050", "display_phone":
+        "(504) 523-0050", "distance": 2953.3865051203147}, {"id": "NptSlw3aDVtu-qtXcti7aA",
+        "alias": "mahogany-jazz-hall-new-orleans-2", "name": "Mahogany Jazz Hall",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/LXcejQ8MAh-SSpuXlQX8_w/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/mahogany-jazz-hall-new-orleans-2?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 125, "categories": [{"alias": "jazzandblues", "title": "Jazz
+        & Blues"}, {"alias": "cocktailbars", "title": "Cocktail Bars"}, {"alias":
+        "musicvenues", "title": "Music Venues"}], "rating": 4.5, "coordinates": {"latitude":
+        29.95331, "longitude": -90.0678}, "transactions": [], "price": "$$", "location":
+        {"address1": "125 Chartres St", "address2": "", "address3": "", "city": "New
+        Orleans", "zip_code": "70130", "country": "US", "state": "LA", "display_address":
+        ["125 Chartres St", "New Orleans, LA 70130"]}, "phone": "+15045985241", "display_phone":
+        "(504) 598-5241", "distance": 1573.4015840978857}, {"id": "jMZ56S8Y1t7cA1Ob-d-qeA",
+        "alias": "three-muses-new-orleans", "name": "Three Muses", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/lh13zazSkN4_KEELQtooRQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/three-muses-new-orleans?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 1193, "categories": [{"alias": "jazzandblues", "title": "Jazz
+        & Blues"}, {"alias": "musicvenues", "title": "Music Venues"}, {"alias": "newamerican",
+        "title": "American (New)"}], "rating": 4.0, "coordinates": {"latitude": 29.96329,
+        "longitude": -90.0579}, "transactions": ["delivery"], "price": "$$", "location":
+        {"address1": "536 Frenchmen St", "address2": "", "address3": "", "city": "New
+        Orleans", "zip_code": "70116", "country": "US", "state": "LA", "display_address":
+        ["536 Frenchmen St", "New Orleans, LA 70116"]}, "phone": "+15042524801", "display_phone":
+        "(504) 252-4801", "distance": 2613.258918006583}, {"id": "XNllgtbX8Er5sixIrJMEoQ",
+        "alias": "the-rusty-nail-new-orleans", "name": "The Rusty Nail", "image_url":
+        "https://s3-media4.fl.yelpcdn.com/bphoto/mUgUuBv1Jnupl0kzj-pP2g/o.jpg", "is_closed":
+        false, "url": "https://www.yelp.com/biz/the-rusty-nail-new-orleans?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 216, "categories": [{"alias": "sportsbars", "title": "Sports
+        Bars"}, {"alias": "whiskeybars", "title": "Whiskey Bars"}, {"alias": "lounges",
+        "title": "Lounges"}], "rating": 4.5, "coordinates": {"latitude": 29.9407520294189,
+        "longitude": -90.0691375732422}, "transactions": [], "price": "$", "location":
+        {"address1": "1100 Constance St", "address2": "", "address3": "", "city":
+        "New Orleans", "zip_code": "70130", "country": "US", "state": "LA", "display_address":
+        ["1100 Constance St", "New Orleans, LA 70130"]}, "phone": "+15045255515",
+        "display_phone": "(504) 525-5515", "distance": 2211.4815755306818}, {"id":
+        "Q_Wo3rX84Dy-YdQsiDmrWw", "alias": "chickie-wah-wah-new-orleans", "name":
+        "Chickie Wah Wah", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/BbRxEhVAvUejhe_PvveAeg/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/chickie-wah-wah-new-orleans?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 128, "categories": [{"alias": "musicvenues", "title": "Music
+        Venues"}], "rating": 4.0, "coordinates": {"latitude": 29.96669, "longitude":
+        -90.0896}, "transactions": ["delivery"], "price": "$$", "location": {"address1":
+        "2828 Canal St", "address2": "", "address3": "", "city": "New Orleans", "zip_code":
+        "70119", "country": "US", "state": "LA", "display_address": ["2828 Canal St",
+        "New Orleans, LA 70119"]}, "phone": "+18552924924", "display_phone": "(855)
+        292-4924", "distance": 1302.1355875845559}, {"id": "XrSCucCyRXk4asKmgE6IaQ",
+        "alias": "kermits-treme-mother-in-law-lounge-new-orleans-3", "name": "Kermit''s
+        Treme Mother In Law Lounge", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/PPUNpTqAYtiD-6B_mEfWPA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/kermits-treme-mother-in-law-lounge-new-orleans-3?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 55, "categories": [{"alias": "bars", "title": "Bars"}, {"alias":
+        "jazzandblues", "title": "Jazz & Blues"}], "rating": 4.5, "coordinates": {"latitude":
+        29.9709231, "longitude": -90.0667502}, "transactions": [], "price": "$$",
+        "location": {"address1": "1500 N Claiborne Ave", "address2": "", "address3":
+        "", "city": "New Orleans", "zip_code": "70116", "country": "US", "state":
+        "LA", "display_address": ["1500 N Claiborne Ave", "New Orleans, LA 70116"]},
+        "phone": "", "display_phone": "", "distance": 2326.1332157385873}, {"id":
+        "7pKzyzCFC7LpX82sM-0aMg", "alias": "balcony-music-club-new-orleans", "name":
+        "Balcony Music Club", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/OfyYoIweAkVHyj-kuGlQYg/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/balcony-music-club-new-orleans?adjust_creative=lEP9cBAeECfg4vQqgY1eNA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=lEP9cBAeECfg4vQqgY1eNA",
+        "review_count": 157, "categories": [{"alias": "musicvenues", "title": "Music
+        Venues"}, {"alias": "bars", "title": "Bars"}], "rating": 4.0, "coordinates":
+        {"latitude": 29.961726, "longitude": -90.058327}, "transactions": [], "price":
+        "$$", "location": {"address1": "1331 Decatur St", "address2": "", "address3":
+        "", "city": "New Orleans", "zip_code": "70116", "country": "US", "state":
+        "LA", "display_address": ["1331 Decatur St", "New Orleans, LA 70116"]}, "phone":
+        "+15043015912", "display_phone": "(504) 301-5912", "distance": 2530.185658867711}],
+        "total": 602, "region": {"center": {"longitude": -90.08377075195312, "latitude":
+        29.956084336405493}}}'
+  recorded_at: Fri, 16 Sep 2022 20:53:50 GMT
+recorded_with: VCR 6.1.0

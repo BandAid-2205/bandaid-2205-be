@@ -4,17 +4,21 @@ class Api::V1::Lastfm::ArtistInfoController < ApplicationController
     if data.class == ArtistPoro
       json_response(data) 
     else 
-      error_handle(data) 
+      error_handle(data)
     end
   end
 
   private 
     def json_response(object, status = :ok)
-      render json: object, status: status
+      if object == nil 
+        render json: { data: {}}
+      else
+        render json: ArtistPoroSerializer.new(object), status: status
+      end
     end
 
     def error_handle(object)
-      # {:error=>6, :message=>"The artist you supplied could not be found", :links=>[]}
-      json_response( { message: object[:message]}, :not_found)
+      # object = {:error=>6, :message=>"The artist you supplied could not be found", :links=>[]}
+      render json: object[:message], status: 404
     end
 end

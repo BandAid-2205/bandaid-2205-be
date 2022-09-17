@@ -17,8 +17,6 @@ RSpec.describe 'Artist Search API' do
 
       artist_data = json[:data]
 
-      binding.pry 
-
       expect(artist_data).to have_key(:type)
       expect(artist_data[:type]).to eq "artist_poro"
 
