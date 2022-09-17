@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2022_09_16_010057) do
     t.string "location"
     t.string "phone"
     t.string "price"
-    t.string "category"
+    t.string "category", array: true
     t.integer "rating"
     t.integer "user_id"
     t.datetime "created_at", null: false
