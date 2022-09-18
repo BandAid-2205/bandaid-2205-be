@@ -31,7 +31,7 @@ RSpec.describe 'Venue Search API' do
 
             expect(venue_data.first[:attributes]).to have_key(:category)
          
-            expect(venue_data.first[:attributes][:category]).to include("Jazz & Blues", "Bars", "Music Venues")
+            expect(venue_data.first[:attributes][:category]).to eq("Jazz & Blues")
         end 
 
           it 'returns an error code if the venue does not exist in the Yelp API', :vcr do
