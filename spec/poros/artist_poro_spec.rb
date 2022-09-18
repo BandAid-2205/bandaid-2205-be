@@ -12,8 +12,7 @@ RSpec.describe 'Artist Poro' do
     expect(artist.id).to eq 1 
     expect(artist.name).to eq(data[:name])
     expect(artist.bio).to eq(data[:bio][:summary])
-    tags = data[:tags][:tag].map { |tag| tag[:name] }
-    expect(artist.genres).to eq(tags)
+    expect(artist.genre).to eq(data[:tags][:tag].first[:name])
     expect(artist.image_path).to eq(data[:image][2][:"#text"])
   end
 end

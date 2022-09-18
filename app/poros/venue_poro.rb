@@ -7,15 +7,11 @@ class VenuePoro
         @phone = data[:phone]
         @price = data[:price] 
         @location = address(data[:location])
-        @category = categories_list(data[:categories])
+        @category = data[:categories].first[:title]
         @id = data[:id]
     end 
 
     def address(location)
         "#{location[:address1]} #{location[:address2]} #{location[:city]}, #{location[:state]} #{location[:zip_code]}"
     end
-
-    def categories_list(categories)
-        categories.map { |category| category[:title] }
-    end 
 end 
