@@ -4,7 +4,7 @@ class CreateArtists < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :location
       t.text :bio
-      t.string :genres, array: true
+      t.string :genre
       t.string :image_path
       t.integer :user_id
 
