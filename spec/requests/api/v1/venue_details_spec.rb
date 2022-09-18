@@ -4,7 +4,6 @@ RSpec.describe 'Venue Details' do
 
   describe 'Venue Details Create' do 
     it 'creates a new set of Venue details tied to a User' do 
-      # venue_1 = create(:venue)
       venue_params = ({
                         name: Faker::Company.name, 
                         location: Faker::Address.full_address, 
@@ -20,8 +19,6 @@ RSpec.describe 'Venue Details' do
       post "/api/v1/venues", headers: headers, params: JSON.generate(venue: venue_params)
 
       created_venue = Venue.last 
-
-      binding.pry 
 
       expect(response).to be_successful 
       expect(created_venue.name).to eq(venue_params[:name])
@@ -44,7 +41,7 @@ RSpec.describe 'Venue Details' do
     it 'returns an error if user does not enter correct info' do 
 
       venue_params = ({
-                        name: Faker::Company.name, 
+                        name: '', 
                         location: Faker::Address.full_address, 
                         phone: Faker::PhoneNumber.cell_phone, 
                         price: ['$', '$$', '$$$', '$$$$'].sample, 
@@ -56,8 +53,8 @@ RSpec.describe 'Venue Details' do
 
       post "/api/v1/venues", headers: headers, params: JSON.generate(venue: venue_params)
 
-      expect(response).to have_http_status(404)
-      expect(response.body).to include("The venue must have a name")
+      expect(response).to have_http_status(422)
+      expect(response.body).to include("Validation failed: Name can't be blank")
     end
   end 
 end

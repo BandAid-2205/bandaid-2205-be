@@ -1,13 +1,11 @@
 class Api::V1::VenuesController < ApplicationController 
   def create
-    binding.pry 
     venue = Venue.create!(venue_params)
-    test = render json: venue 
-    binding.pry 
+    venue_json_response(venue)
   end
 
   private 
     def venue_params
-      params.require(:venue).permit(:name, :location, :phone, :price, :rating, :user_id, :category => [])
+      params.require(:venue).permit(:name, :location, :phone, :price, :rating, :category, :user_id)
     end
 end
