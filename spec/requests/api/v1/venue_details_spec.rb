@@ -79,4 +79,22 @@ RSpec.describe 'Venue Details' do
       expect(response.body).to include("Couldn't find Venue")
     end
   end
+
+  describe 'Venue Details Update' do 
+    it 'can update an existing Venues details' do 
+      venue_1 = create(:venue)
+
+      old_phone = venue_1.phone 
+
+      venue_params = { phone: "504-555-555" }
+      headers = {"CONTENT_TYPE" => "application/json"}
+
+      patch "/api/v1/venues/#{venue_1.id}", headers: headers, params: JSON.generate({venue: venue_params})
+
+      expect(response).to be_successful
+
+      expect(venue_1.phone).to_not eq old_phone
+      expect(venue_1.phone).to eq "504-555-555" 
+    end
+  end
 end
