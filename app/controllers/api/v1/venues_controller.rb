@@ -15,6 +15,12 @@ class Api::V1::VenuesController < ApplicationController
     venue_json_response(venue)
   end
 
+  def destroy 
+    venue = Venue.find_by!(user_id: params[:id])
+    render json: Venue.destroy(venue.id)
+    head :no_content 
+  end
+
   private 
     def venue_params
       params.require(:venue).permit(:name, :location, :phone, :price, :rating, :category, :user_id)
