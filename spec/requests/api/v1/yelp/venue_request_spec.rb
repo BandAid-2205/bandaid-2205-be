@@ -4,7 +4,7 @@ RSpec.describe 'Venue Search API' do
     describe 'yelp search by venue name & location' do 
         it 'sends a single venue based on a query to the Yelp Api', :vcr do 
             
-            get '/api/v1/yelp/search?term=music venue&location=New Orleans&limit=5'
+            get '/api/v1/yelp/search?term=music%20venue&location=New%20Orleans&limit=5'
 
             expect(response).to be_successful
 
@@ -33,5 +33,12 @@ RSpec.describe 'Venue Search API' do
          
             expect(venue_data.first[:attributes][:category]).to include("Jazz & Blues", "Bars", "Music Venues")
         end 
+
+          it 'returns an error code if the venue does not exist in the Yelp API', :vcr do
+            get '/api/v1/yelp/search?term=dfsfsd&location=dfdfs'
+
+            expect(response).to have_http_status(404)
+            expect(response.body).to eq("Could not execute search, try specifying a more exact location.")
+        end
     end 
 end 
