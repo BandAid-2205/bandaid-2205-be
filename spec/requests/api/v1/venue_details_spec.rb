@@ -171,5 +171,12 @@ RSpec.describe 'Venue Details' do
       expect(Venue.count).to eq 0 
       expect{ Venue.find(venue_1.id) }.to raise_error(ActiveRecord::RecordNotFound)
     end
+
+    it 'returns an error if it cannot destroy Venue matching user_id' do 
+      delete "/api/v1/venues/abc123"
+
+      expect(response).to have_http_status(404)
+      expect(response.body).to include("Couldn't find Venue")
+    end
   end
 end
