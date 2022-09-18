@@ -71,5 +71,12 @@ RSpec.describe 'Venue Details' do
       expect(venue[:attributes][:rating]).to eq(venue_1.rating)
       expect(venue[:attributes][:user_id]).to eq(venue_1.user_id)
     end
+
+    it 'returns an error if venue does not exist' do 
+      get "/api/v1/venues/abc123"
+
+      expect(response).to have_http_status(404)
+      expect(response.body).to include("Couldn't find Venue")
+    end
   end
 end

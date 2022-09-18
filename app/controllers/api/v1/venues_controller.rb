@@ -5,7 +5,7 @@ class Api::V1::VenuesController < ApplicationController
   end
 
   def show 
-    venue = Venue.find_by(user_id: params[:id])
+    venue = Venue.find_by!(user_id: params[:id])
     venue_json_response(venue)
   end
 
