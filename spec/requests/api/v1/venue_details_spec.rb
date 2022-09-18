@@ -133,5 +133,29 @@ RSpec.describe 'Venue Details' do
       expect(response).to have_http_status(404)
       expect(response.body).to include("Couldn't find Venue")
     end
+
+    it 'returns an error if price input is invalid' do 
+      venue_1 = create(:venue)
+
+      venue_params = { phone: 504555555, price: '', category: 7 }
+      headers = {"CONTENT_TYPE" => "application/json"}
+
+      patch "/api/v1/venues/#{venue_1.user_id}", headers: headers, params: JSON.generate({venue: venue_params})
+
+      expect(response).to have_http_status(422)
+      expect(response.body).to include("Validation failed: Price is not included in the list")
+    end
+
+    it 'returns an error if rating input is invalid' do 
+      venue_1 = create(:venue)
+
+      venue_params = { phone: 504555555, rating: 'bad rating' }
+      headers = {"CONTENT_TYPE" => "application/json"}
+
+      patch "/api/v1/venues/#{venue_1.user_id}", headers: headers, params: JSON.generate({venue: venue_params})
+
+      expect(response).to have_http_status(422)
+      expect(response.body).to include("Validation failed: Rating is not a number")
+    end
   end
 end

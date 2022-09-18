@@ -11,8 +11,8 @@ class Api::V1::VenuesController < ApplicationController
 
   def update
     venue = Venue.find_by!(user_id: params[:id])
-    updated_venue = Venue.update(venue.id, venue_params)
-    venue_json_response(updated_venue)
+    venue.update_attributes!(venue_params)
+    venue_json_response(venue)
   end
 
   private 
