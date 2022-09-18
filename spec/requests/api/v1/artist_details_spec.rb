@@ -115,12 +115,12 @@ RSpec.describe 'Artist profile page' do
   end
 
   describe 'Artist show' do
-    xit 'can retrieve details of a single Artist by userID' do
+    it 'can retrieve details of a single Artist by userID' do
       artist1 = create(:artist)
 
       get "/api/v1/artists/#{artist1.user_id}"
 
-      expect(response).to be be_successful
+      expect(response).to be_successful
 
       artist_details = JSON.parse(response.body, symbolize_names: true)
       artist = artist_details[:data]
@@ -135,12 +135,11 @@ RSpec.describe 'Artist profile page' do
       expect(artist[:attributes][:user_id]).to eq(artist1.user_id)
     end
 
-    xit 'returns an error if Artist cannot be found' do
-      artist_params = { name: Faker::Music.band, bio: Faker::Lorem.paragraph, genre: 'new genre' }
-      headers = {"CONTENT_TYPE" => "application/json"}
+    it 'returns an error if Artist cannot be found' do
+      get "/api/v1/artists/abc123"
 
-      patch "/api/v1/artists/#{artist1.user_id}", headers: headers, params: JSON.generate({artist: artist_params})
-
+      expect(response).to have_http_status(404)
+      expect(response.body).to include("Couldn't find Artist")
     end
   end
 end
