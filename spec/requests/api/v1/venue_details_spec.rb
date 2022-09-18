@@ -89,12 +89,39 @@ RSpec.describe 'Venue Details' do
       venue_params = { phone: "504-555-555" }
       headers = {"CONTENT_TYPE" => "application/json"}
 
-      patch "/api/v1/venues/#{venue_1.id}", headers: headers, params: JSON.generate({venue: venue_params})
+      patch "/api/v1/venues/#{venue_1.user_id}", headers: headers, params: JSON.generate({venue: venue_params})
+
+      updated_venue = Venue.find_by(user_id: venue_1.user_id)
 
       expect(response).to be_successful
 
-      expect(venue_1.phone).to_not eq old_phone
-      expect(venue_1.phone).to eq "504-555-555" 
+      expect(updated_venue.phone).to_not eq old_phone
+      expect(updated_venue.phone).to eq "504-555-555" 
+    end
+
+    it 'can update multiple existing Venues details' do 
+      venue_1 = create(:venue)
+
+      old_phone = venue_1.phone 
+      old_price = venue_1.price 
+      old_category = venue_1.category 
+
+      venue_params = { phone: "504-555-555", price: '$$$', category: 'new category' }
+      headers = {"CONTENT_TYPE" => "application/json"}
+
+      patch "/api/v1/venues/#{venue_1.user_id}", headers: headers, params: JSON.generate({venue: venue_params})
+
+      updated_venue = Venue.find_by(user_id: venue_1.user_id)
+
+      expect(response).to be_successful
+
+      expect(updated_venue.phone).to_not eq old_phone
+      expect(updated_venue.phone).to eq "504-555-555" 
+
+      expect(updated_venue.price).to eq "$$$"
+
+      expect(updated_venue.category).to_not eq old_category
+      expect(updated_venue.category).to eq 'new category' 
     end
   end
 end
