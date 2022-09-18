@@ -9,6 +9,12 @@ class Api::V1::VenuesController < ApplicationController
     venue_json_response(venue)
   end
 
+  def update
+    venue = Venue.find_by!(user_id: params[:id])
+    venue.update_attributes!(venue_params)
+    venue_json_response(venue)
+  end
+
   private 
     def venue_params
       params.require(:venue).permit(:name, :location, :phone, :price, :rating, :category, :user_id)
