@@ -13,4 +13,15 @@ RSpec.describe VenueSearchFacade, :vcr do
        expect(result.first.location).to be_a(String)
        expect(result.first.id).to be_a(String)
     end 
+
+    it 'returns an error message if artist is not returned', :vcr do 
+        venue_info = VenueSearchFacade.venue_search("dfsfsd", "dfdfs")
+
+        expect(venue_info).to eq({
+        "error": {
+        "code": "LOCATION_NOT_FOUND",
+        "description": "Could not execute search, try specifying a more exact location."
+         }
+        })
+    end
 end 
