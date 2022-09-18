@@ -5,7 +5,7 @@ class CreateVenues < ActiveRecord::Migration[5.2]
       t.string :location
       t.string :phone
       t.string :price
-      t.string :category, array: true
+      t.string :category
       t.integer :rating
       t.integer :user_id
 
