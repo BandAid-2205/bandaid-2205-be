@@ -158,4 +158,25 @@ RSpec.describe 'Venue Details' do
       expect(response.body).to include("Validation failed: Rating is not a number")
     end
   end
+
+  describe 'Venue Details Destroy' do 
+    it 'can destroy a Venue given user_id' do 
+      venue_1 = create(:venue)
+
+      expect(Venue.count).to eq 1 
+
+      delete "/api/v1/venues/#{venue_1.user_id}"
+
+      expect(response).to be_successful
+      expect(Venue.count).to eq 0 
+      expect{ Venue.find(venue_1.id) }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+
+    it 'returns an error if it cannot destroy Venue matching user_id' do 
+      delete "/api/v1/venues/abc123"
+
+      expect(response).to have_http_status(404)
+      expect(response.body).to include("Couldn't find Venue")
+    end
+  end
 end

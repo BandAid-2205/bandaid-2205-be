@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :venues, only: [:create, :show, :update]
+      resources :venues, only: [:create, :show, :update, :destroy]
       resources :artists, only: [:show, :create, :update, :destroy]
 
       namespace :lastfm do
