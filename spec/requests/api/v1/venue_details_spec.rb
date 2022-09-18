@@ -49,4 +49,25 @@ RSpec.describe 'Venue Details' do
       expect(response.body).to include("Validation failed: Name can't be blank")
     end
   end 
+
+  describe 'Venue Details Get' do 
+    it 'can retrieve the details of a single Venue by its user_id' do 
+      venue_1 = create(:venue)
+
+      get "/api/v1/venues/#{venue_1.user_id}"
+
+      expect(response).to be_successful
+
+      venue_details = JSON.parse(response.body, symbolize_names: true)
+
+      expect(venue_details[:id]).to eq(venue_1.id)
+      expect(venue_details[:name]).to eq(venue_1.name)
+      expect(venue_details[:location]).to eq(venue_1.location)
+      expect(venue_details[:phone]).to eq(venue_1.phone)
+      expect(venue_details[:price]).to eq(venue_1.price)
+      expect(venue_details[:category]).to eq(venue_1.category)
+      expect(venue_details[:rating]).to eq(venue_1.rating)
+      expect(venue_details[:user_id]).to eq(venue_1.user_id)
+    end
+  end
 end
