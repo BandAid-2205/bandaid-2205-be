@@ -123,5 +123,15 @@ RSpec.describe 'Venue Details' do
       expect(updated_venue.category).to_not eq old_category
       expect(updated_venue.category).to eq 'new category' 
     end
+
+    it 'returns an error if Venue data does not exist' do 
+      venue_params = { phone: "504-555-555", price: '$$$', category: 'new category' }
+      headers = {"CONTENT_TYPE" => "application/json"}
+
+      patch "/api/v1/venues/abc123", headers: headers, params: JSON.generate({venue: venue_params})
+
+      expect(response).to have_http_status(404)
+      expect(response.body).to include("Couldn't find Venue")
+    end
   end
 end
