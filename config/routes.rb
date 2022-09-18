@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      get '/artists/search', to: 'artists/search#show'
-
-      resources :venues, only: [:create, :show, :update]
+      resources :venues, only: [:create, :show, :update, :destroy]
       resources :artists, only: [:create, :update, :destroy]
 
       namespace :lastfm do
