@@ -1,20 +1,18 @@
 class Api::V1::ArtistsController < ApplicationController
+  def show
+    artist = Artist.find_by!(user_id: params[:id])
+    artist_json_response(artist)
+  end
+
   def create
-    artist = Artist.new(artist_params)
-    if artist.save
-      render json: ArtistSerializer.new(artist), status: 201
-    else
-      render status: 422
-    end
+    artist = Artist.create!(artist_params)
+    artist_json_response(artist)
   end
 
   def update
-    artist = Artist.find(params[:id])
-    if artist.update(artist_params)
-      render json: ArtistSerializer.new(artist)
-    else
-      render status: 404
-    end
+    artist = Artist.find_by!(user_id: params[:id])
+    artist.update_attributes!(artist_params)
+    artist_json_response(artist)
   end
 
   def destroy
@@ -28,11 +26,11 @@ class Api::V1::ArtistsController < ApplicationController
   private
   def artist_params
     params.require(:artist).permit(
-                            :name,
-                            :location,
-                            :bio,
-                            :genre,
-                            :image_path,
-                            :user_id)
+                              :name,
+                              :location,
+                              :bio,
+                              :genre,
+                              :image_path,
+                              :user_id)
   end
 end
