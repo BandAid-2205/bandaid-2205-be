@@ -1,9 +1,10 @@
 class VenuePoro
-    attr_reader :name, :rating, :price, :location, :category, :id
+    attr_reader :name, :rating, :phone, :price, :location, :id, :category
 
     def initialize(data)
         @name = data[:name]
         @rating = data[:rating]
+        @phone = data[:phone]
         @price = data[:price] 
         @location = address(data[:location])
         @category = data[:categories].first[:title]
