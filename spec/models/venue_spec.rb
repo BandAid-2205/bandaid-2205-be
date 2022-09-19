@@ -5,6 +5,7 @@ RSpec.describe Venue, type: :model do
     it { should validate_presence_of :name }
     it { should validate_presence_of(:location) }
     it { should validate_presence_of(:phone) }
+    # it { should validate_format_of(:phone).with(/\d[0-9]\)*\z/) }
     it { should allow_value('$').for(:price) }
     it { should allow_value('$$').for(:price) }
     it { should allow_value('$$$').for(:price) }
