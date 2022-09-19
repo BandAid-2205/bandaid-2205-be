@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   post "api/v1/venues/:id/venue_artists/:artist_id", to: 'venue_artists#create'
 
   patch "api/v1/venues/:id/venue_artists/:artist_id", to: 'venue_artists#update'
-  
+
   namespace :api do
     namespace :v1 do
-      resources :venues, only: [:create, :show, :update, :destroy] 
+      resources :venues, only: [:index, :create, :show, :update, :destroy]
 
       resources :artists, only: [:show, :create, :update, :destroy]
       # resources :venue_artists, only: [:create, :update]
