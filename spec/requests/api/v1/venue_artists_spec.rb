@@ -12,7 +12,7 @@ RSpec.describe VenueArtist do
       })
       headers = {"CONTENT_TYPE" => "application/json"}
 
-      post "/api/v1/venue_artists", headers: headers, params: JSON.generate(venue_artists: va_params)
+      post "/api/v1/venues/#{venue_1.id}/venue_artists/#{artist_1.id}", headers: headers, params: JSON.generate(venue_artists: va_params)
 
       created_venue_artist = VenueArtist.last 
 
@@ -23,16 +23,45 @@ RSpec.describe VenueArtist do
     end
 
     it 'returns an error if creation is unsuccessful' do 
+      venue_1 = create(:venue)
+      artist_1 = create(:artist)
+      
       va_params = ({ 
         venue_id: '', 
         artist_id: '', 
       })
       headers = {"CONTENT_TYPE" => "application/json"}
 
-      post "/api/v1/venue_artists", headers: headers, params: JSON.generate(venue_artists: va_params)
+      post "/api/v1/venues/#{venue_1.id}/venue_artists/#{artist_1.id}", headers: headers, params: JSON.generate(venue_artists: va_params)
 
       expect(response).to have_http_status(422)
       expect(response.body).to include("Validation failed: Venue can't be blank, Artist can't be blank, Venue must exist, Artist must exist")
+    end
+  end
+
+  describe 'Edit VenueArtist' do 
+    it 'can update the enum from pending to accepted' do 
+      venue_1 = create(:venue)
+      artist_1 = create(:artist)
+
+      va_params = ({ 
+        venue_id: venue_1.id, 
+        artist_id: artist_1.id, 
+      })
+      headers = {"CONTENT_TYPE" => "application/json"}
+
+      post "/api/v1/venues/#{venue_1.id}/venue_artists/#{artist_1.id}", headers: headers, params: JSON.generate(venue_artists: va_params)
+
+      venue_artist = VenueArtist.last
+      
+      update_params = ({
+        booking_status: 1
+      })
+      patch "/api/v1/venues/#{venue_1.id}/venue_artists/#{artist_1.id}", headers: headers, params: JSON.generate({ venue_artist: update_params})
+
+      expect(response).to be_successful
+      expect(venue_artist.booking_status).to_not equal 'pending'
+      expect(venue_artist.booking_status).to equal 'accepted'
     end
   end
 end
