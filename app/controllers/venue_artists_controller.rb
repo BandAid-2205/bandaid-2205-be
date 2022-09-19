@@ -10,6 +10,11 @@ class VenueArtistsController < ApplicationController
     venue_artist_json_response(va) 
   end
 
+  def show 
+    va = VenueArtist.find_by!(venue_id: params[:id])
+    venue_artist_json_response(va)
+  end
+
   private 
     def va_params
       params.require(:venue_artist).permit(:venue_id, :artist_id, :booking_status)

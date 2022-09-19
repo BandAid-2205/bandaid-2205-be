@@ -87,4 +87,24 @@ RSpec.describe VenueArtist do
       expect(response.body).to include("'5' is not a valid booking_status")
     end
   end
+
+  describe 'get VenueArtist' do 
+    it 'can return data on a single VenueArtist' do 
+      va = create(:venue_artist)
+
+      get "/api/v1/venues/#{va.venue_id}/venue_artists/#{va.artist_id}"
+
+      expect(response).to be_successful
+
+      va_details = JSON.parse(response.body, symbolize_names: true)
+
+      expect(va_details[:data][:id]).to eq va.id.to_s
+
+      va_data = va_details[:data][:attributes]
+
+      expect(va_data[:venue_id]).to eq va.venue_id
+      expect(va_data[:artist_id]).to eq va.artist_id
+      expect(va_data[:booking_status]).to eq va.booking_status
+    end
+  end
 end

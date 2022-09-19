@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  post "api/v1/venues/:id/venue_artists/:artist_id", to: 'venue_artists#create'
-
-  patch "api/v1/venues/:id/venue_artists/:artist_id", to: 'venue_artists#update'
-  
-  namespace :api do
+    namespace :api do
     namespace :v1 do
       resources :venues, only: [:create, :show, :update, :destroy] 
 
@@ -18,4 +14,11 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  # VenueArtist CRUD 
+  post "api/v1/venues/:id/venue_artists/:artist_id", to: 'venue_artists#create'
+
+  patch "api/v1/venues/:id/venue_artists/:artist_id", to: 'venue_artists#update'
+  
+  get "api/v1/venues/:id/venue_artists/:artist_id", to: 'venue_artists#show'
 end
