@@ -16,11 +16,8 @@ class Api::V1::ArtistsController < ApplicationController
   end
 
   def destroy
-    if Artist.exists?(params[:id])
-      Artist.destroy(params[:id])
-    else
-      render status: 404
-    end
+    artist = Artist.find_by!(user_id: params[:id])
+    Artist.destroy(artist.id)
   end
 
   private

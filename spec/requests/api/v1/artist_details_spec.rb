@@ -25,11 +25,11 @@ RSpec.describe 'Artist profile page' do
       expect(created_artist.image_path).to eq(artist_params[:image_path])
       expect(created_artist.user_id).to eq(artist_params[:user_id])
 
-      delete "/api/v1/artists/#{created_artist.id}"
+      delete "/api/v1/artists/#{created_artist.user_id}"
 
       expect(response).to have_http_status(204)
       expect(Artist.count).to eq(0)
-      expect{Artist.find(created_artist.id)}.to raise_error(ActiveRecord::RecordNotFound)
+      expect{Artist.find(created_artist.user_id)}.to raise_error(ActiveRecord::RecordNotFound)
     end
 
     it 'returns an error if user does not enter correct info when creating' do
