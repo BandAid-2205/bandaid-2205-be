@@ -1,7 +1,7 @@
 class Api::V1::VenueArtistsController < ApplicationController 
   def create 
     va = VenueArtist.create!(va_params)
-    venue_artist_json_response(va)
+    venue_artist_json_response(va) 
   end
 
   private 

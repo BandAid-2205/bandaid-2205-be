@@ -21,5 +21,18 @@ RSpec.describe VenueArtist do
       expect(created_venue_artist.artist_id).to eq va_params[:artist_id]
       expect(created_venue_artist.booking_status).to eq 'pending'
     end
+
+    it 'returns an error if creation is unsuccessful' do 
+      va_params = ({ 
+        venue_id: '', 
+        artist_id: '', 
+      })
+      headers = {"CONTENT_TYPE" => "application/json"}
+
+      post "/api/v1/venue_artists", headers: headers, params: JSON.generate(venue_artists: va_params)
+
+      expect(response).to have_http_status(422)
+      expect(response.body).to include("Validation failed: Venue can't be blank, Artist can't be blank, Venue must exist, Artist must exist")
+    end
   end
 end
