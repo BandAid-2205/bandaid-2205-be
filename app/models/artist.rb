@@ -4,10 +4,9 @@ class Artist < ApplicationRecord
   validates_presence_of :bio, allow_nil: true
   validates_presence_of :genre
   validates_presence_of :image_path, allow_nil: true
+  validates :image_path, allow_blank: true, format: { with: %r{.(gif|jpg|png)\Z}i, message: 'must be a URL for GIF, JPG or PNG image.' }
   validates_presence_of :user_id
 
-  has_many :artist_events, dependent: :destroy
-  has_many :events, through: :artist_events
   has_many :venue_artists, dependent: :destroy
   has_many :venues, through: :venue_artists
 end

@@ -12,13 +12,12 @@
 
 # venue_1 = Venue.create!(name: 'Trilly', location: '123 abc st New Orleans, LA 70119', phone: '555-555-5555', price: '$', category: 'restaurant', rating: 5, user_id: 1)
 
-
 artist1 = Artist.create!(
     name: Faker::Music.band,
     location: Faker::Address.full_address,
     bio: Faker::Lorem.paragraph,
     genre: Faker::Music.genre,
-    image_path: Faker::LoremPixel.image,
+    image_path: Faker::Placeholdit.image,
     user_id: 1000
   )
 artist2 = Artist.create!(
@@ -26,7 +25,7 @@ artist2 = Artist.create!(
     location: Faker::Address.full_address,
     bio: Faker::Lorem.paragraph,
     genre: Faker::Music.genre,
-    image_path: Faker::LoremPixel.image,
+    image_path: Faker::Placeholdit.image,
     user_id: 1001
   )
 artist3 = Artist.create!(
@@ -34,7 +33,7 @@ artist3 = Artist.create!(
     location: Faker::Address.full_address,
     bio: Faker::Lorem.paragraph,
     genre: Faker::Music.genre,
-    image_path: Faker::LoremPixel.image,
+    image_path: Faker::Placeholdit.image,
     user_id: 1002
   )
 artist4 = Artist.create!(
@@ -42,7 +41,7 @@ artist4 = Artist.create!(
     location: Faker::Address.full_address,
     bio: Faker::Lorem.paragraph,
     genre: Faker::Music.genre,
-    image_path: Faker::LoremPixel.image,
+    image_path: Faker::Placeholdit.image,
     user_id: 1003
   )
 artist5 = Artist.create!(
@@ -50,11 +49,9 @@ artist5 = Artist.create!(
     location: Faker::Address.full_address,
     bio: Faker::Lorem.paragraph,
     genre: Faker::Music.genre,
-    image_path: Faker::LoremPixel.image,
+    image_path: Faker::Placeholdit.image,
     user_id: 1004
   )
-
-
 
 venue1 = Venue.create!(
     name: Faker::Company.name,
@@ -72,7 +69,7 @@ venue2 = Venue.create!(
     price: ['$', '$$', '$$$', '$$$$'].sample,
     category: Faker::Company.industry,
     rating: Faker::Number.within(range: 1..5),
-    user_id: 2000
+    user_id: 2001
   )
 venue3 = Venue.create!(
     name: Faker::Company.name,
@@ -81,7 +78,7 @@ venue3 = Venue.create!(
     price: ['$', '$$', '$$$', '$$$$'].sample,
     category: Faker::Company.industry,
     rating: Faker::Number.within(range: 1..5),
-    user_id: 2000
+    user_id: 2002
   )
 
 v1a1 = VenueArtist.create!(
@@ -122,5 +119,17 @@ v3a5 = VenueArtist.create!(
 v1a4 = VenueArtist.create!(
   artist_id: artist4.id,
   venue_id: venue1.id,
+  booking_status: ['pending', 'accepted', 'rejected'].sample
+  )
+v2a2 = VenueArtist.create!(
+  artist_id: artist2.id,
+  venue_id: venue2.id,
+  date: Faker::Date.forward(days: 7),
+  booking_status: ['pending', 'accepted', 'rejected'].sample
+  )
+v3a2 = VenueArtist.create!(
+  artist_id: artist2.id,
+  venue_id: venue3.id,
+  date: Faker::Date.forward(days: 12),
   booking_status: ['pending', 'accepted', 'rejected'].sample
   )
