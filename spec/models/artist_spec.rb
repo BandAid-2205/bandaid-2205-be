@@ -7,6 +7,7 @@ RSpec.describe Artist, type: :model do
     it { should validate_presence_of(:bio).allow_nil }
     it { should validate_presence_of :genre }
     it { should validate_presence_of(:image_path).allow_nil }
+    # it { should validate_format_of(:image_path).with(%r{.(gif|jpg|png)\Z}i) }
     it { should validate_presence_of :user_id }
   end
 
