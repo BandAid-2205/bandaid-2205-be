@@ -12,6 +12,6 @@ class VenueArtistsController < ApplicationController
 
   private 
     def va_params
-      params.require(:venue_artists).permit(:venue_id, :artist_id, :booking_status)
+      params.require(:venue_artist).permit(:venue_id, :artist_id, :booking_status)
     end
 end

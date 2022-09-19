@@ -12,7 +12,7 @@ RSpec.describe VenueArtist do
       })
       headers = {"CONTENT_TYPE" => "application/json"}
 
-      post "/api/v1/venues/#{venue_1.id}/venue_artists/#{artist_1.id}", headers: headers, params: JSON.generate(venue_artists: va_params)
+      post "/api/v1/venues/#{venue_1.id}/venue_artists/#{artist_1.id}", headers: headers, params: JSON.generate(venue_artist: va_params)
 
       created_venue_artist = VenueArtist.last 
 
@@ -32,7 +32,7 @@ RSpec.describe VenueArtist do
       })
       headers = {"CONTENT_TYPE" => "application/json"}
 
-      post "/api/v1/venues/#{venue_1.id}/venue_artists/#{artist_1.id}", headers: headers, params: JSON.generate(venue_artists: va_params)
+      post "/api/v1/venues/#{venue_1.id}/venue_artists/#{artist_1.id}", headers: headers, params: JSON.generate(venue_artist: va_params)
 
       expect(response).to have_http_status(422)
       expect(response.body).to include("Validation failed: Venue can't be blank, Artist can't be blank, Venue must exist, Artist must exist")
@@ -50,7 +50,7 @@ RSpec.describe VenueArtist do
       })
       headers = {"CONTENT_TYPE" => "application/json"}
 
-      post "/api/v1/venues/#{venue_1.id}/venue_artists/#{artist_1.id}", headers: headers, params: JSON.generate(venue_artists: va_params)
+      post "/api/v1/venues/#{venue_1.id}/venue_artists/#{artist_1.id}", headers: headers, params: JSON.generate(venue_artist: va_params)
 
       venue_artist = VenueArtist.last
       
@@ -60,8 +60,8 @@ RSpec.describe VenueArtist do
       patch "/api/v1/venues/#{venue_1.id}/venue_artists/#{artist_1.id}", headers: headers, params: JSON.generate({ venue_artist: update_params})
 
       expect(response).to be_successful
-      expect(venue_artist.booking_status).to_not equal 'pending'
-      expect(venue_artist.booking_status).to equal 'accepted'
+      expect(venue_artist.reload.booking_status).to_not eq 'pending'
+      expect(venue_artist.reload.booking_status).to eq 'accepted'
     end
   end
 end
