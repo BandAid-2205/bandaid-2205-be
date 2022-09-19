@@ -17,5 +17,7 @@ RSpec.describe Venue, type: :model do
 
   describe 'relationships' do
     it { should have_many :events }
+    it { should have_many(:venue_artists) }
+    it { should have_many(:artists).through(:venue_artists) }
   end
 end

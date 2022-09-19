@@ -10,4 +10,125 @@
 # puts cmd
 # system(cmd)
 
-venue_1 = Venue.create!(name: 'Trilly', location: '123 abc st New Orleans, LA 70119', phone: '555-555-5555', price: '$', category: 'restaurant', rating: 5, user_id: 1)
+# venue_1 = Venue.create!(name: 'Trilly', location: '123 abc st New Orleans, LA 70119', phone: '555-555-5555', price: '$', category: 'restaurant', rating: 5, user_id: 1)
+
+
+artist1 = Artist.create!(
+    name: Faker::Music.band,
+    location: Faker::Address.full_address,
+    bio: Faker::Lorem.paragraph,
+    genre: Faker::Music.genre,
+    image_path: Faker::LoremPixel.image,
+    user_id: 1000
+  )
+artist2 = Artist.create!(
+    name: Faker::Music.band,
+    location: Faker::Address.full_address,
+    bio: Faker::Lorem.paragraph,
+    genre: Faker::Music.genre,
+    image_path: Faker::LoremPixel.image,
+    user_id: 1001
+  )
+artist3 = Artist.create!(
+    name: Faker::Music.band,
+    location: Faker::Address.full_address,
+    bio: Faker::Lorem.paragraph,
+    genre: Faker::Music.genre,
+    image_path: Faker::LoremPixel.image,
+    user_id: 1002
+  )
+artist4 = Artist.create!(
+    name: Faker::Music.band,
+    location: Faker::Address.full_address,
+    bio: Faker::Lorem.paragraph,
+    genre: Faker::Music.genre,
+    image_path: Faker::LoremPixel.image,
+    user_id: 1003
+  )
+artist5 = Artist.create!(
+    name: Faker::Music.band,
+    location: Faker::Address.full_address,
+    bio: Faker::Lorem.paragraph,
+    genre: Faker::Music.genre,
+    image_path: Faker::LoremPixel.image,
+    user_id: 1004
+  )
+
+
+
+venue1 = Venue.create!(
+    name: Faker::Company.name,
+    location: Faker::Address.full_address,
+    phone: Faker::PhoneNumber.cell_phone,
+    price: ['$', '$$', '$$$', '$$$$'].sample,
+    category: Faker::Company.industry,
+    rating: Faker::Number.within(range: 1..5),
+    user_id: 2000
+  )
+venue2 = Venue.create!(
+    name: Faker::Company.name,
+    location: Faker::Address.full_address,
+    phone: Faker::PhoneNumber.cell_phone,
+    price: ['$', '$$', '$$$', '$$$$'].sample,
+    category: Faker::Company.industry,
+    rating: Faker::Number.within(range: 1..5),
+    user_id: 2000
+  )
+venue3 = Venue.create!(
+    name: Faker::Company.name,
+    location: Faker::Address.full_address,
+    phone: Faker::PhoneNumber.cell_phone,
+    price: ['$', '$$', '$$$', '$$$$'].sample,
+    category: Faker::Company.industry,
+    rating: Faker::Number.within(range: 1..5),
+    user_id: 2000
+  )
+
+v1a1 = VenueArtist.create!(
+  artist_id: artist1.id,
+  venue_id: venue1.id,
+  date: Faker::Date.forward(days: 10),
+  booking_status: ['pending', 'accepted', 'rejected'].sample
+  )
+v2a1 = VenueArtist.create!(
+  artist_id: artist1.id,
+  venue_id: venue2.id,
+  date: Faker::Date.forward(days: 7),
+  booking_status: ['pending', 'accepted', 'rejected'].sample
+  )
+v1a3 = VenueArtist.create!(
+  artist_id: artist3.id,
+  venue_id: venue1.id,
+  date: Faker::Date.forward(days: 10),
+  booking_status: ['pending', 'accepted', 'rejected'].sample
+  )
+v3a3 = VenueArtist.create!(
+  artist_id: artist3.id,
+  venue_id: venue3.id,
+  date: Faker::Date.forward(days: 12),
+  booking_status: ['pending', 'accepted', 'rejected'].sample
+  )
+v2a3 = VenueArtist.create!(
+  artist_id: artist3.id,
+  venue_id: venue2.id,
+  date: Faker::Date.forward(days: 7),
+  booking_status: ['pending', 'accepted', 'rejected'].sample
+  )
+v2a4 = VenueArtist.create!(
+  artist_id: artist4.id,
+  venue_id: venue2.id,
+  date: Faker::Date.forward(days: 7),
+  booking_status: ['pending', 'accepted', 'rejected'].sample
+  )
+v3a5 = VenueArtist.create!(
+  artist_id: artist5.id,
+  venue_id: venue3.id,
+  date: Faker::Date.forward(days: 12),
+  booking_status: ['pending', 'accepted', 'rejected'].sample
+  )
+v1a4 = VenueArtist.create!(
+  artist_id: artist4.id,
+  venue_id: venue1.id,
+  date: Faker::Date.forward(days: 10),
+  booking_status: ['pending', 'accepted', 'rejected'].sample
+  )

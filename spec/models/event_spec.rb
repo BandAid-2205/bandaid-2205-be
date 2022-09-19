@@ -10,6 +10,7 @@ RSpec.describe Event, type: :model do
     it { should allow_value('open').for(:booking_status) }
     it { should allow_value('pending').for(:booking_status) }
     it { should allow_value('booked').for(:booking_status) }
+    it { should allow_value('closed').for(:booking_status) }
     it { should validate_presence_of :venue_id }
   end
 
