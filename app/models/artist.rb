@@ -8,4 +8,6 @@ class Artist < ApplicationRecord
 
   has_many :artist_events, dependent: :destroy
   has_many :events, through: :artist_events
+  has_many :venue_artists, dependent: :destroy
+  has_many :venues, through: :venue_artists
 end
