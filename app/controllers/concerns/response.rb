@@ -7,6 +7,10 @@ module Response
     render json: ArtistSerializer.new(object), status: status
   end
 
+  def venue_artist_json_response(object, status = :ok)
+    render json: VenueArtistSerializer.new(object), status: status 
+  end
+
   def error_response(message, status)
     render json: message, status: status
   end
