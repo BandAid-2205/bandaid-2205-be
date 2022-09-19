@@ -5,13 +5,13 @@ class VenueArtistsController < ApplicationController
   end
 
   def update 
-    va = VenueArtist.find_by!(venue_id: params[:id])
+    va = VenueArtist.find_by!(venue_id: params[:id], artist_id: params[:artist_id])
     va.update_attributes!(va_params)
     venue_artist_json_response(va) 
   end
 
   def show 
-    va = VenueArtist.find_by!(venue_id: params[:id])
+    va = VenueArtist.find_by!(venue_id: params[:id], artist_id: params[:artist_id])
     venue_artist_json_response(va)
   end
 

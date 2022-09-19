@@ -106,5 +106,14 @@ RSpec.describe VenueArtist do
       expect(va_data[:artist_id]).to eq va.artist_id
       expect(va_data[:booking_status]).to eq va.booking_status
     end
+
+    it 'returns an error if data does not exist' do 
+      va = create(:venue_artist)
+
+      get "/api/v1/venues/#{va.venue_id}/venue_artists/abc123"
+
+      expect(response).to have_http_status(404)
+      expect(response.body).to include("Couldn't find VenueArtist")
+    end 
   end
 end
