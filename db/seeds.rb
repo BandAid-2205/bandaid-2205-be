@@ -87,48 +87,40 @@ venue3 = Venue.create!(
 v1a1 = VenueArtist.create!(
   artist_id: artist1.id,
   venue_id: venue1.id,
-  date: Faker::Date.forward(days: 10),
   booking_status: ['pending', 'accepted', 'rejected'].sample
   )
 v2a1 = VenueArtist.create!(
   artist_id: artist1.id,
   venue_id: venue2.id,
-  date: Faker::Date.forward(days: 7),
   booking_status: ['pending', 'accepted', 'rejected'].sample
   )
 v1a3 = VenueArtist.create!(
   artist_id: artist3.id,
   venue_id: venue1.id,
-  date: Faker::Date.forward(days: 10),
   booking_status: ['pending', 'accepted', 'rejected'].sample
   )
 v3a3 = VenueArtist.create!(
   artist_id: artist3.id,
   venue_id: venue3.id,
-  date: Faker::Date.forward(days: 12),
   booking_status: ['pending', 'accepted', 'rejected'].sample
   )
 v2a3 = VenueArtist.create!(
   artist_id: artist3.id,
   venue_id: venue2.id,
-  date: Faker::Date.forward(days: 7),
   booking_status: ['pending', 'accepted', 'rejected'].sample
   )
 v2a4 = VenueArtist.create!(
   artist_id: artist4.id,
   venue_id: venue2.id,
-  date: Faker::Date.forward(days: 7),
   booking_status: ['pending', 'accepted', 'rejected'].sample
   )
 v3a5 = VenueArtist.create!(
   artist_id: artist5.id,
   venue_id: venue3.id,
-  date: Faker::Date.forward(days: 12),
   booking_status: ['pending', 'accepted', 'rejected'].sample
   )
 v1a4 = VenueArtist.create!(
   artist_id: artist4.id,
   venue_id: venue1.id,
-  date: Faker::Date.forward(days: 10),
   booking_status: ['pending', 'accepted', 'rejected'].sample
   )
