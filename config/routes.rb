@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :venues, only: [:create, :show, :update, :destroy]
       resources :artists, only: [:show, :create, :update, :destroy]
+      resources :venue_artists, only: [:create]
 
       namespace :lastfm do
         get '/search', to: 'artist_info#find_artist'
