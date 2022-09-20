@@ -79,7 +79,7 @@ RSpec.describe 'Venue Details' do
       expect(response.body).to include("Couldn't find Venue")
     end
 
-    it 'can retrieve the details of a single Venue by its user_id' do
+    it 'can retrieve nested details of Artist and VenueArtist when joined' do
       venue1 = create(:venue)
       artists = create_list(:artist, 2)
       artist1 = Artist.first
