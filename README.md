@@ -26,7 +26,8 @@ This project requires:
   Base URL: https://bandaid-be.herokuapp.com/
 ## Endpoints 
 ### Venues 
- * Return a single Venue’s information based on the User ID associated with the Venue. (*GET /api/v1/venues/:user_id*)
+ Return a single Venue’s information based on the User ID associated with the Venue. 
+   *GET /api/v1/venues/:user_id
 
  * Example Response: 
   ```{
