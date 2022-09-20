@@ -1,7 +1,9 @@
 ![](https://img.shields.io/badge/Rails-5.2.8.1-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Ruby-2.7.4-red) ![](https://travis-ci.com/Relocate08/Relocate-Back-End-Rails.svg?branch=main)
 ## About This Project
-
+This project requires: 
+* Ruby 2.7.4 
+* Rails 5.2.8.1
 
 ## Table of Contents 
 * [Local Setup](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#local-setup)
