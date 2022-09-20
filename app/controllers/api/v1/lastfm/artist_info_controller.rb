@@ -10,11 +10,7 @@ class Api::V1::Lastfm::ArtistInfoController < ApplicationController
 
   private 
     def json_response(object, status = :ok)
-      if object == nil 
-        render json: { data: {}}
-      else
         render json: ArtistPoroSerializer.new(object), status: status
-      end
     end
 
     def error_handle(object)
