@@ -117,7 +117,9 @@ This project requires:
          },
          "included": []
         }```
-
+ 
+#### Destroy a Venue’s information using the User ID associated with the Venue; this also destroys all VenueArtists associated with the Venue  
+   * `delete /api/v1/venues/:user_id`
 ### Artists
  Return a single Artist’s information based on the User ID associated with the Artist. 
   * `get /api/v1/artists/:user_id`
