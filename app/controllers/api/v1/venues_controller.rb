@@ -11,18 +11,15 @@ class Api::V1::VenuesController < ApplicationController
   end
 
   def show
-    # venue = Venue.find_by!(user_id: params[:id])
     venue_json_response(@venue)
   end
 
   def update
-    # venue = Venue.find_by!(user_id: params[:id])
     @venue.update_attributes!(venue_params)
     venue_json_response(@venue)
   end
 
   def destroy
-    # venue = Venue.find_by!(user_id: params[:id])
     render json: Venue.destroy(@venue.id)
     head :no_content
   end

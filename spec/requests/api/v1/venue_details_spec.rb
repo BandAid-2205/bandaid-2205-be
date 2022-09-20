@@ -187,7 +187,7 @@ RSpec.describe 'Venue Details' do
       va_1 = VenueArtist.create!(venue_id: venue_1.id, artist_id: artist_1.id)
       va_2 = VenueArtist.create!(venue_id: venue_1.id, artist_id: artist_2.id)
 
-      delete "/api/v1/venues/#{venue_1.id}"
+      delete "/api/v1/venues/#{venue_1.user_id}"
 
       expect(response).to be_successful
       expect(Venue.count).to eq 0
