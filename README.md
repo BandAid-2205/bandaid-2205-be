@@ -4,7 +4,7 @@
 
 
 ## Table of Contents 
-
+* [Local Setup](https://github.com/BandAid-2205/bandaid-2205-be/edit/main/README.md#local-setup)
 ## Local Setup 
 
 ## Deployment 
