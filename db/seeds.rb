@@ -13,11 +13,11 @@
 # venue_1 = Venue.create!(name: 'Trilly', location: '123 abc st New Orleans, LA 70119', phone: '555-555-5555', price: '$', category: 'restaurant', rating: 5, user_id: 1)
 
 artist1 = Artist.create!(
-    name: Faker::Music.band,
-    location: Faker::Address.full_address,
-    bio: Faker::Lorem.paragraph,
-    genre: Faker::Music.genre,
-    image_path: Faker::Placeholdit.image,
+    name: "TV Pole Shine",
+    location: "New Orleans, LA",
+    bio: "TV Pole Shine makes music that spans the spectrum from lip-smacking to head-scratching. We call our music Spasm- Funk. Equal parts professional musicians and theatre makers, TV Pole Shine's catchy songs are rivaled only by their innovative choreography and radical insistence on audience participation.",
+    genre: "funk",
+    image_path: "https://f4.bcbits.com/img/a1975691682_16.jpg",
     user_id: 1000
   )
 artist2 = Artist.create!(
@@ -54,12 +54,12 @@ artist5 = Artist.create!(
   )
 
 venue1 = Venue.create!(
-    name: Faker::Company.name,
-    location: Faker::Address.full_address,
-    phone: Faker::PhoneNumber.cell_phone,
-    price: ['$', '$$', '$$$', '$$$$'].sample,
-    category: Faker::Company.industry,
-    rating: Faker::Number.within(range: 1..5),
+    name: "Trilly Cheesesteaks",
+    location: "3735 Ulloa St, New Orleans, LA 70119",
+    phone: "504-582-9057",
+    price: "$",
+    category: "restaurant",
+    rating: 5,
     user_id: 2000
   )
 venue2 = Venue.create!(
@@ -84,7 +84,7 @@ venue3 = Venue.create!(
 v1a1 = VenueArtist.create!(
   artist_id: artist1.id,
   venue_id: venue1.id,
-  booking_status: ['pending', 'accepted', 'rejected'].sample
+  booking_status: 1
   )
 v2a1 = VenueArtist.create!(
   artist_id: artist1.id,
