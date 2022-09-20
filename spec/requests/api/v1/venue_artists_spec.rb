@@ -69,19 +69,19 @@ RSpec.describe VenueArtist do
       artist_1 = create(:artist)
 
       va_params = ({ 
-        venue_id: venue_1.id, 
-        artist_id: artist_1.id, 
+        venue_id: venue_1.user_id, 
+        artist_id: artist_1.user_id, 
       })
       headers = {"CONTENT_TYPE" => "application/json"}
 
-      post "/api/v1/venues/#{venue_1.id}/venue_artists/#{artist_1.id}", headers: headers, params: JSON.generate(venue_artist: va_params)
+      post "/api/v1/venues/#{venue_1.user_id}/venue_artists/#{artist_1.user_id}", headers: headers, params: JSON.generate(venue_artist: va_params)
 
       venue_artist = VenueArtist.last
       
       update_params = ({
         booking_status: 5
       })
-      patch "/api/v1/venues/#{venue_1.id}/venue_artists/#{artist_1.id}", headers: headers, params: JSON.generate({ venue_artist: update_params})
+      patch "/api/v1/venues/#{venue_1.user_id}/venue_artists/#{artist_1.user_id}", headers: headers, params: JSON.generate({ venue_artist: update_params})
 
       expect(response).to have_http_status(422)
       expect(response.body).to include("'5' is not a valid booking_status")
@@ -90,9 +90,20 @@ RSpec.describe VenueArtist do
 
   describe 'get VenueArtist' do 
     it 'can return data on a single VenueArtist' do 
-      va = create(:venue_artist)
+      venue_1 = create(:venue)
+      artist_1 = create(:artist)
 
-      get "/api/v1/venues/#{va.venue_id}/venue_artists/#{va.artist_id}"
+      va_params = ({ 
+        venue_id: venue_1.user_id, 
+        artist_id: artist_1.user_id, 
+      })
+      headers = {"CONTENT_TYPE" => "application/json"}
+
+      post "/api/v1/venues/#{venue_1.user_id}/venue_artists/#{artist_1.user_id}", headers: headers, params: JSON.generate(venue_artist: va_params)
+
+      va = VenueArtist.last
+
+      get "/api/v1/venues/#{venue_1.user_id}/venue_artists/#{artist_1.user_id}"
 
       expect(response).to be_successful
 
