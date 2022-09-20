@@ -20,4 +20,28 @@ RSpec.describe Venue, type: :model do
     it { should have_many(:venue_artists) }
     it { should have_many(:artists).through(:venue_artists) }
   end
+
+  describe 'model methods' do
+    describe '#find_venue' do
+      it 'scopes venues with fuzzy search by location' do
+        create_list(:venue, 5)
+
+        location_search = Venue.first.location
+
+        Venue.find_venue(location_search).each do |venue|
+          expect(location_search).to eq(venue.location)
+        end
+      end
+
+      it 'returns empty if no search matches location' do
+        create_list(:venue, 5)
+
+        location_search = 'jdfsnfhe'
+
+        Venue.find_venue(location_search).each do |venue|
+          expect(location_search).to eq nil
+        end
+      end
+    end
+  end
 end

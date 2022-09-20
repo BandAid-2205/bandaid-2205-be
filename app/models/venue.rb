@@ -12,4 +12,6 @@ class Venue < ApplicationRecord
 
   has_many :venue_artists, dependent: :destroy
   has_many :artists, through: :venue_artists
+
+  scope :find_venue,  -> (location) {where('location ILIKE ?', "%#{location}%")}
 end
