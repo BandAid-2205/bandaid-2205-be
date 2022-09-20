@@ -11,8 +11,16 @@ This project requires:
 * [Endpoints](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#endpoints)
 * [Schema](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#schema)
 * [Contributors](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#contributors)
-## Local Setup 
-
+## Setup Steps
+* Fork the repository 
+* Clone the fork
+* Install gems and set up your database: 
+** bundle install
+** rails db:create
+** rails db;migrate 
+* Install Figaro
+** bundle exec figaro install
+* Update the application.yml file with ENV variables storing API keys for Yelp and Last.fm (pages for obtaining API keys linked)
 ## Deployment 
   BandAid-2205-BE is deployed remotely on Herkou. 
   Base URL: https://bandaid-be.herokuapp.com/
