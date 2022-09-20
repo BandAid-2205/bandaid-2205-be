@@ -121,10 +121,12 @@ RSpec.describe VenueArtist do
     it 'returns an error if data does not exist' do 
       va = create(:venue_artist)
 
-      get "/api/v1/venues/#{va.venue_id}/venue_artists/abc123"
+      venue = Venue.create!(name: 'Trilly', location: 'New Orleans', phone: '3333333', price: '$', category: 'food', user_id: va.venue_id)
+
+      get "/api/v1/venues/#{venue.user_id}/venue_artists/abc123"
 
       expect(response).to have_http_status(404)
-      expect(response.body).to include("Couldn't find VenueArtist")
+      expect(response.body).to include("Couldn't find Artist")
     end 
   end
 end
