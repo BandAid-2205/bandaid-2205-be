@@ -159,5 +159,43 @@ RSpec.describe 'Artist profile page' do
       expect(response).to have_http_status(404)
       expect(response.body).to include("Couldn't find Artist")
     end
+
+    it 'can the Artists venues information through the serializer' do
+      artist1 = create(:artist)
+      venues = create_list(:venue, 2)
+      venue1 = Venue.first
+      venue2 = Venue.second
+      v1a1 = VenueArtist.create!(
+        artist_id: artist1.id,
+        venue_id: venue1.id,
+        booking_status: ['pending', 'accepted', 'rejected'].sample
+        )
+      v2a1 = VenueArtist.create!(
+        artist_id: artist1.id,
+        venue_id: venue2.id,
+        booking_status: ['pending', 'accepted', 'rejected'].sample
+        )
+
+      get "/api/v1/artists/#{artist1.user_id}"
+
+      expect(response).to be_successful
+
+      artist_details = JSON.parse(response.body, symbolize_names: true)
+      artist = artist_details[:data]
+
+      expect(artist[:id]).to eq(artist1.id.to_s)
+      expect(artist[:type]).to eq('artist')
+      expect(artist[:attributes][:name]).to eq(artist1.name)
+      expect(artist[:attributes][:location]).to eq(artist1.location)
+      expect(artist[:attributes][:bio]).to eq(artist1.bio)
+      expect(artist[:attributes][:genre]).to eq(artist1.genre)
+      expect(artist[:attributes][:image_path]).to eq(artist1.image_path)
+      expect(artist[:attributes][:user_id]).to eq(artist1.user_id)
+      expect(artist[:attributes][:venues].count).to eq 2
+      expect(artist[:attributes][:venues][0][:name]).to eq(venue1.name)
+      expect(artist[:attributes][:venues][1][:name]).to eq(venue2.name)
+      expect(artist[:attributes][:venue_artists][0][:booking_status]).to eq(v1a1.booking_status)
+      expect(artist[:attributes][:venue_artists][1][:booking_status]).to eq(v2a1.booking_status)
+    end
   end
 end

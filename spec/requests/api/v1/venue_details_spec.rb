@@ -78,6 +78,46 @@ RSpec.describe 'Venue Details' do
       expect(response).to have_http_status(404)
       expect(response.body).to include("Couldn't find Venue")
     end
+
+    it 'can retrieve the details of a single Venue by its user_id' do
+      venue1 = create(:venue)
+      artists = create_list(:artist, 2)
+      artist1 = Artist.first
+      artist2 = Artist.second
+      v1a1 = VenueArtist.create!(
+        artist_id: artist1.id,
+        venue_id: venue1.id,
+        booking_status: ['pending', 'accepted', 'rejected'].sample
+        )
+      v2a1 = VenueArtist.create!(
+        artist_id: artist2.id,
+        venue_id: venue1.id,
+        booking_status: ['pending', 'accepted', 'rejected'].sample
+        )
+
+      get "/api/v1/venues/#{venue1.user_id}"
+
+      expect(response).to be_successful
+
+      venue_details = JSON.parse(response.body, symbolize_names: true)
+
+      venue = venue_details[:data]
+
+      expect(venue[:id]).to eq(venue1.id.to_s)
+      expect(venue[:type]).to eq('venue')
+      expect(venue[:attributes][:name]).to eq(venue1.name)
+      expect(venue[:attributes][:location]).to eq(venue1.location)
+      expect(venue[:attributes][:phone]).to eq(venue1.phone)
+      expect(venue[:attributes][:price]).to eq(venue1.price)
+      expect(venue[:attributes][:category]).to eq(venue1.category)
+      expect(venue[:attributes][:rating]).to eq(venue1.rating)
+      expect(venue[:attributes][:user_id]).to eq(venue1.user_id)
+      expect(venue[:attributes][:artists].count).to eq(2)
+      expect(venue[:attributes][:artists][0][:name]).to eq(artist1.name)
+      expect(venue[:attributes][:artists][1][:name]).to eq(artist2.name)
+      expect(venue[:attributes][:venue_artists][0][:booking_status]).to eq(v1a1.booking_status)
+      expect(venue[:attributes][:venue_artists][1][:booking_status]).to eq(v2a1.booking_status)
+    end
   end
 
   describe 'Venue Details Update' do

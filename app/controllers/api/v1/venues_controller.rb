@@ -2,7 +2,8 @@ class Api::V1::VenuesController < ApplicationController
   before_action :set_venue, only: [:show, :update, :destroy] #callback action 
 
   def index
-    render json: VenueSerializer.new(Venue.all)
+    venues = Venue.all
+    render json: VenueSerializer.new(venues)
   end
 
   def create
