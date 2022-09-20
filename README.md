@@ -9,6 +9,7 @@ BandAid is an application that utilizes a frontend and a backend application. Th
 * [Local Setup](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#local-setup)
 * [Deployment](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#deployment)
 * [Endpoints](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#endpoints)
+  * [Venues](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#venues)
 * [Schema](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#schema)
 * [Contributors](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#contributors)
 
