@@ -1,6 +1,8 @@
 class VenueArtistsController < ApplicationController 
   def create 
-    va = VenueArtist.create!(va_params)
+    venue = Venue.find_by!(user_id: va_params[:venue_id])
+    artist = Artist.find_by!(user_id: va_params[:artist_id])
+    va = VenueArtist.create!(venue_id: venue.id, artist_id: artist.id)
     venue_artist_json_response(va) 
   end
 
