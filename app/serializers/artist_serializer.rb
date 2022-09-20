@@ -3,7 +3,7 @@ class ArtistSerializer
   attributes :name, :location, :bio, :genre, :image_path, :user_id
 
   has_many :venues, if: Proc.new { |record| record.venues.any? }
-  has_many :venue_artists
+  has_many :venue_artists, if: Proc.new { |record| record.venue_artists.any? }
 
   attribute :venues do |object|
     object.venues.as_json
