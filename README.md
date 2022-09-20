@@ -20,7 +20,7 @@ This project requires:
   * `rails db:migrate` 
 * Install Figaro
   * `bundle exec figaro install`
-* Update the application.yml file with ENV variables storing API keys for Yelp and Last.fm (pages for obtaining API keys linked)
+* Update the `application.yml` file with `ENV` variables storing API keys for [Yelp](https://www.yelp.com/developers/documentation/v3/get_started) and [last.fm](https://www.last.fm/api/show/artist.getInfo) (pages for obtaining API keys linked)
 ## Deployment 
   BandAid-2205-BE is deployed remotely on Herkou. 
   Base URL: https://bandaid-be.herokuapp.com/
