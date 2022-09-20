@@ -2,7 +2,7 @@
 ![](https://img.shields.io/badge/Ruby-2.7.4-red) ![](https://travis-ci.com/Relocate08/Relocate-Back-End-Rails.svg?branch=main)
 ## About This Project
 
-https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md
+
 ## Table of Contents 
 * [Local Setup](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#local-setup)
 * [Deployment](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#deployment)
