@@ -12,7 +12,8 @@
 ## Local Setup 
 
 ## Deployment 
-  BandAid-2205-BE is deployed remotely on Herkou (https://bandaid-be.herokuapp.com/)
+  BandAid-2205-BE is deployed remotely on Herkou. 
+  Base URL: https://bandaid-be.herokuapp.com/
 ## Endpoints 
 
 ## Schema 
