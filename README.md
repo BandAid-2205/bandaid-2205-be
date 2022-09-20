@@ -6,7 +6,7 @@ This project requires:
 * Rails 5.2.8.1
 
 ## Table of Contents 
-* [Local Setup](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#local-setup)
+* [Setup Steps](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#local-setup)
 * [Deployment](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#deployment)
 * [Endpoints](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#endpoints)
 * [Schema](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#schema)
