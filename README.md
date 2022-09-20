@@ -19,7 +19,7 @@
  * Return a single Venue’s information based on the User ID associated with the Venue. (*GET /api/v1/venues/:user_id*)
 
  * Example Response: 
-  ``{
+  -``{
     "data": {
         "id": "6",
         "type": "venue",
