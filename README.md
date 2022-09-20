@@ -33,7 +33,7 @@ This project requires:
   Base URL: https://bandaid-be.herokuapp.com/
 ## Endpoints 
 ### Venues 
- Return a single Venue’s information based on the User ID associated with the Venue. 
+####Return a single Venue’s information based on the User ID associated with the Venue. 
    * `get /api/v1/venues/:user_id`
 
  * Example Response: 
@@ -58,7 +58,7 @@ This project requires:
   }
   ```
  	
- Add a Venue’s information using the User ID associated with the Venue 
+####Add a Venue’s information using the User ID associated with the Venue 
    * `post /api/v1/venues`
    *  Example Request Body 
       ``` {
@@ -90,7 +90,34 @@ This project requires:
          },
          "included": []
         }```
-   
+####Update a Venue’s information using the User ID associated with the Venue 
+   * `patch /api/v1/venues/:user_id`
+   *  Example Request Body 
+      ```{
+          "name": "Trilly",
+          "category": "cheesesteak restaurant"
+         }```
+   *  Example Response
+      ```{
+          "data": {
+          "id": "5",
+          "type": "venue",
+          "attributes": {
+            "name": "Trilly",
+            "location": "3735 Ulloa St, New Orleans, LA 70119",
+            "phone": "504-582-9057",
+            "price": "$",
+            "category": "cheesesteak restaurant",
+            "rating": 5,
+            "user_id": 10000,
+            "artists": [],
+            "venue_artists": []
+          },
+          "relationships": {}
+         },
+         "included": []
+        }```
+
 ### Artists
  Return a single Artist’s information based on the User ID associated with the Artist. 
   * `get /api/v1/artists/:user_id`
