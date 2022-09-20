@@ -6,7 +6,7 @@ BandAid is an app that allows artists and music venues, large and small, to conn
 BandAid is an application that utilizes a frontend and a backend application. The frontend Application creates a seamless user interface for artists and venues, implements OAuth for login, and makes API calls to the backend. The backend is responsible for receiving requests from the frontend, submitting requests to the Yelp and Last.fm APIs, and return digestible JSON data for the frontend to consume. 
 
 ## Table of Contents 
-* [Setup Steps](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#local-setup)
+* [Local Setup](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#local-setup)
 * [Deployment](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#deployment)
 * [Endpoints](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#endpoints)
 * [Schema](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#schema)
