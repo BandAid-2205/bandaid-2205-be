@@ -1,16 +1,16 @@
-require 'rails_helper' 
+require 'rails_helper'
 
-RSpec.describe 'Venue Details' do 
+RSpec.describe 'Venue Details' do
 
-  describe 'Venue Details Create' do 
-    it 'creates a new set of Venue details tied to a User' do 
+  describe 'Venue Details Create' do
+    it 'creates a new set of Venue details tied to a User' do
       venue_params = ({
-                        name: Faker::Company.name, 
-                        location: Faker::Address.full_address, 
-                        phone: Faker::PhoneNumber.cell_phone, 
-                        price: ['$', '$$', '$$$', '$$$$'].sample, 
-                        category: Faker::Company.industry, 
-                        rating: Faker::Number.within(range: 1..5), 
+                        name: Faker::Company.name,
+                        location: Faker::Address.full_address,
+                        phone: Faker::PhoneNumber.cell_phone,
+                        price: ['$', '$$', '$$$', '$$$$'].sample,
+                        category: Faker::Company.industry,
+                        rating: Faker::Number.within(range: 1..5),
                         user_id: Faker::Number.within(range: 50..75)
                       })
 
@@ -18,9 +18,9 @@ RSpec.describe 'Venue Details' do
 
       post "/api/v1/venues", headers: headers, params: JSON.generate(venue: venue_params)
 
-      created_venue = Venue.last 
+      created_venue = Venue.last
 
-      expect(response).to be_successful 
+      expect(response).to be_successful
       expect(created_venue.name).to eq(venue_params[:name])
       expect(created_venue.location).to eq(venue_params[:location])
       expect(created_venue.phone).to eq(venue_params[:phone])
@@ -30,14 +30,14 @@ RSpec.describe 'Venue Details' do
       expect(created_venue.user_id).to eq(venue_params[:user_id])
     end
 
-    it 'returns an error if user does not enter correct info' do 
+    it 'returns an error if user does not enter correct info' do
       venue_params = ({
-                        name: '', 
-                        location: Faker::Address.full_address, 
-                        phone: Faker::PhoneNumber.cell_phone, 
-                        price: ['$', '$$', '$$$', '$$$$'].sample, 
-                        category: Faker::Company.industry, 
-                        rating: Faker::Number.within(range: 1..5), 
+                        name: '',
+                        location: Faker::Address.full_address,
+                        phone: Faker::PhoneNumber.cell_phone,
+                        price: ['$', '$$', '$$$', '$$$$'].sample,
+                        category: Faker::Company.industry,
+                        rating: Faker::Number.within(range: 1..5),
                         user_id: Faker::Number.within(range: 50..75)
                       })
       headers = {"CONTENT_TYPE" => "application/json"}
@@ -47,10 +47,10 @@ RSpec.describe 'Venue Details' do
       expect(response).to have_http_status(422)
       expect(response.body).to include("Validation failed: Name can't be blank")
     end
-  end 
+  end
 
-  describe 'Venue Details Get' do 
-    it 'can retrieve the details of a single Venue by its user_id' do 
+  describe 'Venue Details Get' do
+    it 'can retrieve the details of a single Venue by its user_id' do
       venue_1 = create(:venue)
 
       get "/api/v1/venues/#{venue_1.user_id}"
@@ -72,7 +72,7 @@ RSpec.describe 'Venue Details' do
       expect(venue[:attributes][:user_id]).to eq(venue_1.user_id)
     end
 
-    it 'returns an error if venue does not exist' do 
+    it 'returns an error if venue does not exist' do
       get "/api/v1/venues/abc123"
 
       expect(response).to have_http_status(404)
@@ -80,11 +80,11 @@ RSpec.describe 'Venue Details' do
     end
   end
 
-  describe 'Venue Details Update' do 
-    it 'can update an existing Venues details' do 
+  describe 'Venue Details Update' do
+    it 'can update an existing Venues details' do
       venue_1 = create(:venue)
 
-      old_phone = venue_1.phone 
+      old_phone = venue_1.phone
 
       venue_params = { phone: "504-555-555" }
       headers = {"CONTENT_TYPE" => "application/json"}
@@ -96,15 +96,15 @@ RSpec.describe 'Venue Details' do
       expect(response).to be_successful
 
       expect(updated_venue.phone).to_not eq old_phone
-      expect(updated_venue.phone).to eq "504-555-555" 
+      expect(updated_venue.phone).to eq "504-555-555"
     end
 
-    it 'can update multiple existing Venues details' do 
+    it 'can update multiple existing Venues details' do
       venue_1 = create(:venue)
 
-      old_phone = venue_1.phone 
-      old_price = venue_1.price 
-      old_category = venue_1.category 
+      old_phone = venue_1.phone
+      old_price = venue_1.price
+      old_category = venue_1.category
 
       venue_params = { phone: "504-555-555", price: '$$$', category: 'new category' }
       headers = {"CONTENT_TYPE" => "application/json"}
@@ -116,15 +116,15 @@ RSpec.describe 'Venue Details' do
       expect(response).to be_successful
 
       expect(updated_venue.phone).to_not eq old_phone
-      expect(updated_venue.phone).to eq "504-555-555" 
+      expect(updated_venue.phone).to eq "504-555-555"
 
       expect(updated_venue.price).to eq "$$$"
 
       expect(updated_venue.category).to_not eq old_category
-      expect(updated_venue.category).to eq 'new category' 
+      expect(updated_venue.category).to eq 'new category'
     end
 
-    it 'returns an error if Venue data does not exist' do 
+    it 'returns an error if Venue data does not exist' do
       venue_params = { phone: "504-555-555", price: '$$$', category: 'new category' }
       headers = {"CONTENT_TYPE" => "application/json"}
 
@@ -134,7 +134,7 @@ RSpec.describe 'Venue Details' do
       expect(response.body).to include("Couldn't find Venue")
     end
 
-    it 'returns an error if price input is invalid' do 
+    it 'returns an error if price input is invalid' do
       venue_1 = create(:venue)
 
       venue_params = { phone: 504555555, price: '', category: 7 }
@@ -146,7 +146,7 @@ RSpec.describe 'Venue Details' do
       expect(response.body).to include("Validation failed: Price is not included in the list")
     end
 
-    it 'returns an error if rating input is invalid' do 
+    it 'returns an error if rating input is invalid' do
       venue_1 = create(:venue)
 
       venue_params = { phone: 504555555, rating: 'bad rating' }
@@ -159,24 +159,51 @@ RSpec.describe 'Venue Details' do
     end
   end
 
-  describe 'Venue Details Destroy' do 
-    it 'can destroy a Venue given user_id' do 
+  describe 'Venue Details Destroy' do
+    it 'can destroy a Venue given user_id' do
       venue_1 = create(:venue)
 
-      expect(Venue.count).to eq 1 
+      expect(Venue.count).to eq 1
 
       delete "/api/v1/venues/#{venue_1.user_id}"
 
       expect(response).to be_successful
-      expect(Venue.count).to eq 0 
+      expect(Venue.count).to eq 0
       expect{ Venue.find(venue_1.id) }.to raise_error(ActiveRecord::RecordNotFound)
     end
 
-    it 'returns an error if it cannot destroy Venue matching user_id' do 
+    it 'returns an error if it cannot destroy Venue matching user_id' do
       delete "/api/v1/venues/abc123"
 
       expect(response).to have_http_status(404)
       expect(response.body).to include("Couldn't find Venue")
+    end
+  end
+
+  describe 'Venue index' do
+    it 'returns a list of Venues' do
+      create_list(:venue, 5)
+
+      get '/api/v1/venues'
+
+      expect(response).to be_successful
+
+      response_body = JSON.parse(response.body, symbolize_names: true)
+      venues = response_body[:data]
+
+      venues.each do |venue|
+        expect(venue).to have_key(:id)
+        expect(venue[:id]).to be_a(String)
+
+        expect(venue).to have_key(:attributes)
+        expect(venue[:attributes][:name]).to be_a(String)
+        expect(venue[:attributes][:location]).to be_a(String)
+        expect(venue[:attributes][:phone]).to be_a(String)
+        expect(venue[:attributes][:price]).to be_a(String)
+        expect(venue[:attributes][:category]).to be_a(String)
+        expect(venue[:attributes][:rating]).to be_an(Integer)
+        expect(venue[:attributes]).to_not have_key(:created_at)
+      end
     end
   end
 end
