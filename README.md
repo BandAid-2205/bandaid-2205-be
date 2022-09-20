@@ -15,9 +15,9 @@
   BandAid-2205-BE is deployed remotely on Herkou. 
   Base URL: https://bandaid-be.herokuapp.com/
 ## Endpoints 
-###Venues 
- * Return a single Venue’s information based on the User ID associated with the Venue 
- * GET /api/v1/venues/:user_id
+### Venues 
+ * Return a single Venue’s information based on the User ID associated with the Venue. (*GET /api/v1/venues/:user_id*)
+
  * Example Response: 
  
 ## Schema 
