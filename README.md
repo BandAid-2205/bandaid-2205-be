@@ -1,9 +1,9 @@
 ![](https://img.shields.io/badge/Rails-5.2.8.1-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Ruby-2.7.4-red) ![](https://travis-ci.com/Relocate08/Relocate-Back-End-Rails.svg?branch=main)
 ## About This Project
-This project requires: 
-* Ruby 2.7.4 
-* Rails 5.2.8.1
+BandAid is an app that allows artists and music venues, large and small, to connect with one another through a smooth booking process. Rather than relying on personal and professional networks, BandAid expands the realm of possibilities for artists looking to book a gig and makes it easier for venues to fill their events calendar. 
+
+BandAid is an application that utilizes a frontend and a backend application. The frontend Application creates a seamless user interface for artists and venues, implements OAuth for login, and makes API calls to the backend. The backend is responsible for receiving requests from the frontend, submitting requests to the Yelp and Last.fm APIs, and return digestible JSON data for the frontend to consume. 
 
 ## Table of Contents 
 * [Setup Steps](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#local-setup)
@@ -11,16 +11,21 @@ This project requires:
 * [Endpoints](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#endpoints)
 * [Schema](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#schema)
 * [Contributors](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#contributors)
-## Setup Steps
-* Fork the repository 
-* Clone the fork
-* Install gems and set up your database: 
-  * `bundle install`
-  * `rails db:create`
-  * `rails db:migrate` 
-* Install Figaro
-  * `bundle exec figaro install`
-* Update the `application.yml` file with `ENV` variables storing API keys for [Yelp](https://www.yelp.com/developers/documentation/v3/get_started) and [last.fm](https://www.last.fm/api/show/artist.getInfo) (pages for obtaining API keys linked)
+
+## Local Setup
+This project requires: 
+ * Ruby 2.7.4 
+ * Rails 5.2.8.1
+### Setup Steps
+ * Fork the repository 
+ * Clone the fork
+ * Install gems and set up your database: 
+   * `bundle install`
+   * `rails db:create`
+   * `rails db:migrate` 
+ * Install Figaro
+   * `bundle exec figaro install`
+ * Update the `application.yml` file with `ENV` variables storing API keys for [Yelp](https://www.yelp.com/developers/documentation/v3/get_started) and [last.fm](https://www.last.fm/api/show/artist.getInfo) (pages for obtaining API keys linked)
 ## Deployment 
   BandAid-2205-BE is deployed remotely on Herkou. 
   Base URL: https://bandaid-be.herokuapp.com/
