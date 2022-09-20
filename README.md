@@ -57,6 +57,40 @@ This project requires:
     "included": []
   }
   ```
+ 	
+ Add a Venue’s information using the User ID associated with the Venue 
+   * `post /api/v1/venues`
+   *  Example Request Body 
+      ``` {
+            "name": "Trilly Cheesesteaks",
+            "location": "3735 Ulloa St, New Orleans, LA 70119",
+            "phone": "504-582-9057", 
+            "price": "$",
+            "category": "restaurant",
+            "rating": 5,
+            "user_id": 10000
+          }```  
+   * Example Response
+     ``` {
+           "data": {
+              "id": "5",
+              "type": "venue",
+              "attributes": {
+                "name": "Trilly Cheesesteaks",
+                "location": "3735 Ulloa St, New Orleans, LA 70119",
+                "phone": "504-582-9057",
+                "price": "$",
+                "category": "restaurant",
+                "rating": 5,
+                "user_id": 10000,
+                "artists": [],
+                "venue_artists": []
+           },
+           "relationships": {}
+         },
+         "included": []
+        }```
+   
 ### Artists
  Return a single Artist’s information based on the User ID associated with the Artist. 
   * `get /api/v1/artists/:user_id`
