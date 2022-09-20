@@ -15,11 +15,11 @@ This project requires:
 * Fork the repository 
 * Clone the fork
 * Install gems and set up your database: 
-  * bundle install
-  * rails db:create
-  * rails db:migrate 
+  * `bundle install`
+  * `rails db:create`
+  * `rails db:migrate` 
 * Install Figaro
-  * bundle exec figaro install
+  * `bundle exec figaro install`
 * Update the application.yml file with ENV variables storing API keys for Yelp and Last.fm (pages for obtaining API keys linked)
 ## Deployment 
   BandAid-2205-BE is deployed remotely on Herkou. 
@@ -27,7 +27,7 @@ This project requires:
 ## Endpoints 
 ### Venues 
  Return a single Venue’s information based on the User ID associated with the Venue. 
-   * GET /api/v1/venues/:user_id
+   * GET `/api/v1/venues/:user_id`
 
  * Example Response: 
   ```{
