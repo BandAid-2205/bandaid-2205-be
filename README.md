@@ -60,7 +60,7 @@ This project requires:
  	
 #### Add a Venue’s information using the User ID associated with the Venue 
    * `post /api/v1/venues`
-   *  Example Request Body 
+   *  Example Request Body: 
       ``` {
             "name": "Trilly Cheesesteaks",
             "location": "3735 Ulloa St, New Orleans, LA 70119",
@@ -70,7 +70,7 @@ This project requires:
             "rating": 5,
             "user_id": 10000
           }```  
-   * Example Response
+   * Example Response:
      ``` {
            "data": {
               "id": "5",
@@ -92,12 +92,12 @@ This project requires:
         }```
 #### Update a Venue’s information using the User ID associated with the Venue 
    * `patch /api/v1/venues/:user_id`
-   *  Example Request Body 
+   *  Example Request Body:
       ```{
           "name": "Trilly",
           "category": "cheesesteak restaurant"
          }```
-   *  Example Response
+   *  Example Response:
       ```{
           "data": {
           "id": "5",
