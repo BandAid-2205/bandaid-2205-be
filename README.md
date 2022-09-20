@@ -19,7 +19,7 @@
  * Return a single Venue’s information based on the User ID associated with the Venue. (*GET /api/v1/venues/:user_id*)
 
  * Example Response: 
-  {
+  ``{
     "data": {
         "id": "6",
         "type": "venue",
@@ -37,7 +37,7 @@
         "relationships": {}
     },
     "included": []
-  }
+  }``
 
 ## Schema 
 <img width="600" alt="BandAid BE Schema" src="https://user-images.githubusercontent.com/101689311/191354037-5b5657d5-4d30-4ddd-b9f9-53d035d491f4.png">
