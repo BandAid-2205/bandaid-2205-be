@@ -1,4 +1,18 @@
-# README
+## About This Project: 
+
+
+## Table of Contents 
+
+## Local Setup 
+
+## Deployment 
+  BandAid-2205-BE is deployed remotely on Herkou (https://bandaid-be.herokuapp.com/)
+## Endpoints 
+
+##Schema 
+
+##Contributors 
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
