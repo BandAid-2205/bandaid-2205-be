@@ -16,8 +16,8 @@ BandAid is an application that utilizes a [frontend](https://github.com/BandAid-
 
 ## Local Setup
 This project requires: 
- * Ruby 2.7.4 
- * Rails 5.2.8.1
+ * `Ruby 2.7.4`
+ * `Rails 5.2.8.1`
 ### Setup Steps
  * Fork the repository 
  * Clone the fork
