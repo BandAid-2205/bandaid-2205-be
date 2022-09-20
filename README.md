@@ -56,7 +56,29 @@ This project requires:
     "included": []
   }
   ```
-
+### Artists
+ Return a single Artist’s information based on the User ID associated with the Artist. 
+  * `get /api/v1/artists/:user_id`
+ * Example Response: 
+ ```{
+   "data": {
+       "id": "7",
+       "type": "artist",
+       "attributes": {
+           "name": "TV Pole Shine",
+           "location": "New Orleans",
+           "bio": "TV Pole Shine makes music that spans the spectrum from lip-smacking to head-scratching. We call our music Spasm- Funk. Equal parts professional musicians and theatre makers, TV Pole Shine's catchy songs are rivaled only by their innovative choreography and radical insistence on audience participation.",
+           "genre": "jazz",
+           "image_path": "https://f4.bcbits.com/img/a1975691682_16.jpg",
+           "user_id": 10001,
+           "venues": [],
+           "venue_artists": []
+       },
+       "relationships": {}
+   },
+   "included": []
+}
+```
 ## Schema 
 <img width="600" alt="BandAid BE Schema" src="https://user-images.githubusercontent.com/101689311/191354037-5b5657d5-4d30-4ddd-b9f9-53d035d491f4.png">
 
