@@ -1,4 +1,4 @@
-## About This Project: 
+## About This Project
 
 
 ## Table of Contents 
