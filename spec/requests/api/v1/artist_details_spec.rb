@@ -49,6 +49,24 @@ RSpec.describe 'Artist profile page' do
       expect(response).to have_http_status(422)
       expect(response.body).to include("Validation failed: Name can't be blank")
     end
+
+    it 'can destroy an Artist that has VenueArtists' do 
+      venue_1 = create(:venue)
+      venue_2 = create(:venue)
+      artist_1 = create(:artist)
+
+      va_1 = VenueArtist.create!(venue_id: venue_1.id, artist_id: artist_1.id)
+      va_2 = VenueArtist.create!(venue_id: venue_2.id, artist_id: artist_1.id)
+
+      delete "/api/v1/artists/#{artist_1.user_id}"
+
+      expect(response).to be_successful
+      expect(Artist.count).to eq 0
+      expect(VenueArtist.count).to eq 0 
+      expect{ Artist.find(artist_1.id) }.to raise_error(ActiveRecord::RecordNotFound)
+      expect{ Venue.find(va_1.id) }.to raise_error(ActiveRecord::RecordNotFound)
+      expect{ Venue.find(va_2.id) }.to raise_error(ActiveRecord::RecordNotFound)
+    end
   end
 
   describe 'Artist update' do

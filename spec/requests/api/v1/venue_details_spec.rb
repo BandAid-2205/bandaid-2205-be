@@ -178,6 +178,24 @@ RSpec.describe 'Venue Details' do
       expect(response).to have_http_status(404)
       expect(response.body).to include("Couldn't find Venue")
     end
+
+    it 'can destroy a Venue that has VenueArtists' do 
+      venue_1 = create(:venue)
+      artist_1 = create(:artist)
+      artist_2 = create(:artist)
+
+      va_1 = VenueArtist.create!(venue_id: venue_1.id, artist_id: artist_1.id)
+      va_2 = VenueArtist.create!(venue_id: venue_1.id, artist_id: artist_2.id)
+
+      delete "/api/v1/venues/#{venue_1.user_id}"
+
+      expect(response).to be_successful
+      expect(Venue.count).to eq 0
+      expect(VenueArtist.count).to eq 0 
+      expect{ Venue.find(venue_1.id) }.to raise_error(ActiveRecord::RecordNotFound)
+      expect{ Venue.find(va_1.id) }.to raise_error(ActiveRecord::RecordNotFound)
+      expect{ Venue.find(va_2.id) }.to raise_error(ActiveRecord::RecordNotFound)
+    end
   end
 
   describe 'Venue index' do
