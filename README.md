@@ -14,3 +14,4 @@
 
 ## Contributors 
 
+- **Anna Marie Sterling** - *Turing Student* - [GitHub] (https://github.com/AMSterling) - [LinkedIn] (https://www.linkedin.com/in/sterling-316a6223a/)
