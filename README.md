@@ -163,7 +163,7 @@ This project requires:
   * `get /api/v1/lastfm/search` 
 
 ### Yelp Venue Profile 
-  #### Return 5 Venues whose information that is stored in Yelp match the query’s keywords and the location 
+  #### Return 5 Venues whose information is stored in Yelp and matches the query’s keywords and the location 
   * `get /api/v1/yelp/search`
 ## Schema 
 
