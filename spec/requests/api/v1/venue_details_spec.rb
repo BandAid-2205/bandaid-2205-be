@@ -123,6 +123,7 @@ RSpec.describe 'Venue Details' do
       expect(venue[:attributes][:bookings]).to be_an Array
       expect(venue[:attributes][:bookings].count).to eq 2
       venue[:attributes][:bookings].each do |booking|
+        expect(booking).to have_key(:id)
         expect(booking).to have_key(:artist_name)
         expect(booking).to have_key(:booking_status)
         expect(booking[:artist_name]).to_not eq(artist3.name)

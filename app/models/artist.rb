@@ -11,6 +11,6 @@ class Artist < ApplicationRecord
   has_many :venues, through: :venue_artists
 
   def bookings
-    self.venues.references(:venue_artists).pluck(:name, :booking_status).map { |name, booking_status| {venue_name: name, booking_status: booking_status}}
+    self.venues.references(:venue_artists).pluck(:id, :name, :booking_status).map { |id, name, booking_status| {id: id, venue_name: name, booking_status: booking_status}}
   end
 end
