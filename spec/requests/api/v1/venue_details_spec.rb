@@ -80,18 +80,26 @@ RSpec.describe 'Venue Details' do
     end
 
     it 'can retrieve nested details of Artist and VenueArtist when joined' do
-      venue1 = create(:venue)
-      artists = create_list(:artist, 2)
+      venues = create_list(:venue, 2)
+      venue1 = Venue.first
+      venue2 = Venue.second
+      artists = create_list(:artist, 3)
       artist1 = Artist.first
       artist2 = Artist.second
+      artist3 = Artist.third
       v1a1 = VenueArtist.create!(
-        artist_id: artist1.id,
         venue_id: venue1.id,
+        artist_id: artist1.id,
         booking_status: ['pending', 'accepted', 'rejected'].sample
         )
-      v2a1 = VenueArtist.create!(
-        artist_id: artist2.id,
+      v1a2 = VenueArtist.create!(
         venue_id: venue1.id,
+        artist_id: artist2.id,
+        booking_status: ['pending', 'accepted', 'rejected'].sample
+        )
+      v2a3 = VenueArtist.create!(
+        venue_id: venue2.id,
+        artist_id: artist3.id,
         booking_status: ['pending', 'accepted', 'rejected'].sample
         )
 
@@ -112,11 +120,18 @@ RSpec.describe 'Venue Details' do
       expect(venue[:attributes][:category]).to eq(venue1.category)
       expect(venue[:attributes][:rating]).to eq(venue1.rating)
       expect(venue[:attributes][:user_id]).to eq(venue1.user_id)
+      expect(venue[:attributes][:bookings]).to be_an Array
+      expect(venue[:attributes][:bookings].count).to eq 2
+      venue[:attributes][:bookings].each do |booking|
+        expect(booking).to have_key(:artist_name)
+        expect(booking).to have_key(:booking_status)
+        expect(booking[:artist_name]).to_not eq(artist3.name)
+      end
       expect(venue[:attributes][:artists].count).to eq(2)
       expect(venue[:attributes][:artists][0][:name]).to eq(artist1.name)
       expect(venue[:attributes][:artists][1][:name]).to eq(artist2.name)
       expect(venue[:attributes][:venue_artists][0][:booking_status]).to eq(v1a1.booking_status)
-      expect(venue[:attributes][:venue_artists][1][:booking_status]).to eq(v2a1.booking_status)
+      expect(venue[:attributes][:venue_artists][1][:booking_status]).to eq(v1a2.booking_status)
     end
   end
 
@@ -219,7 +234,7 @@ RSpec.describe 'Venue Details' do
       expect(response.body).to include("Couldn't find Venue")
     end
 
-    it 'can destroy a Venue that has VenueArtists' do 
+    it 'can destroy a Venue that has VenueArtists' do
       venue_1 = create(:venue)
       artist_1 = create(:artist)
       artist_2 = create(:artist)
@@ -231,7 +246,7 @@ RSpec.describe 'Venue Details' do
 
       expect(response).to be_successful
       expect(Venue.count).to eq 0
-      expect(VenueArtist.count).to eq 0 
+      expect(VenueArtist.count).to eq 0
       expect{ Venue.find(venue_1.id) }.to raise_error(ActiveRecord::RecordNotFound)
       expect{ Venue.find(va_1.id) }.to raise_error(ActiveRecord::RecordNotFound)
       expect{ Venue.find(va_2.id) }.to raise_error(ActiveRecord::RecordNotFound)

@@ -14,4 +14,8 @@ class Venue < ApplicationRecord
   has_many :artists, through: :venue_artists
 
   scope :find_venue,  -> (location) {where('location ILIKE ?', "%#{location}%")}
+
+  def bookings
+    self.artists.references(:venue_artists).pluck(:name, :booking_status).map { |name, booking_status| {artist_name: name, booking_status: booking_status}}
+  end
 end

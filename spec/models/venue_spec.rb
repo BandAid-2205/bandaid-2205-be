@@ -44,4 +44,69 @@ RSpec.describe Venue, type: :model do
       end
     end
   end
+
+  describe 'venue instance methods' do
+    it 'has attribute bookings that lists artists name and booking status' do
+      artists = create_list(:artist, 5)
+      artist1 = Artist.first
+      artist2 = Artist.second
+      artist3 = Artist.third
+      artist4 = Artist.fourth
+      artist5 = Artist.fifth
+      venues = create_list(:venue, 3)
+      venue1 = Venue.first
+      venue2 = Venue.second
+      venue3 = Venue.third
+
+      v1a1 = VenueArtist.create!(
+        venue_id: venue1.id,
+        artist_id: artist1.id,
+        booking_status: ['pending', 'accepted', 'rejected'].sample
+        )
+      v1a4 = VenueArtist.create!(
+        venue_id: venue1.id,
+        artist_id: artist4.id,
+        booking_status: ['pending', 'accepted', 'rejected'].sample
+        )
+      v2a2 = VenueArtist.create!(
+        venue_id: venue2.id,
+        artist_id: artist2.id,
+        booking_status: ['pending', 'accepted', 'rejected'].sample
+      )
+      v2a4 = VenueArtist.create!(
+        venue_id: venue2.id,
+        artist_id: artist4.id,
+        booking_status: ['pending', 'accepted', 'rejected'].sample
+        )
+      v3a1 = VenueArtist.create!(
+        venue_id: venue3.id,
+        artist_id: artist1.id,
+        booking_status: ['pending', 'accepted', 'rejected'].sample
+        )
+      v3a3 = VenueArtist.create!(
+        venue_id: venue3.id,
+        artist_id: artist3.id,
+        booking_status: ['pending', 'accepted', 'rejected'].sample
+      )
+      v3a5 = VenueArtist.create!(
+        venue_id: venue3.id,
+        artist_id: artist5.id,
+        booking_status: ['pending', 'accepted', 'rejected'].sample
+      )
+      venues.each do |venue|
+        venue.bookings.each do |booking|
+          expect(booking).to have_key(:booking_status)
+          expect(booking).to have_key(:artist_name)
+          expect(booking[:booking_status]).to be_an Integer
+        end
+      end
+      expect(venue1.bookings[0][:artist_name]).to eq(artist1.name)
+      expect(venue1.bookings[1][:artist_name]).to eq(artist4.name)
+      expect(venue2.bookings[0][:artist_name]).to eq(artist2.name)
+      expect(venue2.bookings[1][:artist_name]).to eq(artist4.name)
+      expect(venue3.bookings[0][:artist_name]).to eq(artist1.name)
+      expect(venue3.bookings[1][:artist_name]).to eq(artist3.name)
+      expect(venue3.bookings[2][:artist_name]).to eq(artist5.name)
+    end
+  end
 end

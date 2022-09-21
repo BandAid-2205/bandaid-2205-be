@@ -1,6 +1,6 @@
 class VenueSerializer
   include JSONAPI::Serializer
-  attributes :name, :location, :phone, :price, :category, :rating, :user_id
+  attributes :name, :location, :phone, :price, :category, :rating, :user_id, :bookings
 
   has_many :artists, if: Proc.new { |record| record.artists.any? }
   has_many :venue_artists, if: Proc.new { |record| record.venue_artists.any? }
