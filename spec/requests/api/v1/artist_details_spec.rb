@@ -201,7 +201,7 @@ RSpec.describe 'Artist profile page' do
 
       artist_details = JSON.parse(response.body, symbolize_names: true)
       artist = artist_details[:data]
-require "pry"; binding.pry
+
       expect(artist[:id]).to eq(artist1.id.to_s)
       expect(artist[:type]).to eq('artist')
       expect(artist[:attributes][:name]).to eq(artist1.name)
