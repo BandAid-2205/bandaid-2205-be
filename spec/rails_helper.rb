@@ -77,4 +77,8 @@ VCR.configure do |config|
   config.filter_sensitive_data('Hide_Yo_Keys') { ENV['yelp_api_key'] }
   config.filter_sensitive_data('Hide_Yo_Kids') { ENV['last_fm_key'] }
   config.configure_rspec_metadata!
+  config.default_cassette_options = {
+    :match_requests_on => [:method,
+      VCR.request_matchers.uri_without_param(:url)]
+  }
 end
