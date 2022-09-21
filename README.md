@@ -143,6 +143,18 @@ This project requires:
    "included": []
 }
 ```
+
+#### Update an Artist’s information using the User ID associated with the Artist 
+ * `patch /api/v1/artists/:user_id`
+#### Destroy an Artist’s information using the User ID associated with the Artist; this also destroys all VenueArtists associated with the Artist  
+ * `delete /api/v1/artists/:user_id`
+
+### VenueArtists 
+  #### Return a single VenueArtist based on the User ID of the Venue and the User ID of the Artist associated with the VenueArtist 
+  * `get /api/v1/venues/:venue_user_id/venue_artists/:artist_user_id`
+  #### Update a VenueArtist based on the User ID of the Venue and the User ID of the Artist associated with the VenueArtist 
+  * `patch /api/v1/venues/:venue_user_id/venue_artists/:artist_user_id`
+
 ## Schema 
 <img width="600" alt="BandAid BE Schema" src="https://user-images.githubusercontent.com/101689311/191354037-5b5657d5-4d30-4ddd-b9f9-53d035d491f4.png">
 
