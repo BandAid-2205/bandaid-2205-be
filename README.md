@@ -155,8 +155,16 @@ This project requires:
   * `get /api/v1/venues/:venue_user_id/venue_artists/:artist_user_id`
   #### Update a VenueArtist based on the User ID of the Venue and the User ID of the Artist associated with the VenueArtist 
   * `patch /api/v1/venues/:venue_user_id/venue_artists/:artist_user_id`
+  
+### Last.fm Artist Profile
+  #### Return a single Artist’s information that is stored in Last.fm based on the Artist’s name 
+  * `get /api/v1/lastfm/search` 
 
+### Yelp Venue Profile 
+  #### Return 5 Venues whose information that is stored in Yelp match the query’s keywords and the location 
+  * `get /api/v1/yelp/search`
 ## Schema 
+
 <img width="600" alt="BandAid BE Schema" src="https://user-images.githubusercontent.com/101689311/191354037-5b5657d5-4d30-4ddd-b9f9-53d035d491f4.png">
 
 ## Contributors 
