@@ -95,17 +95,25 @@ RSpec.describe Venue, type: :model do
       )
       venues.each do |venue|
         venue.bookings.each do |booking|
+          expect(booking).to have_key(:id)
           expect(booking).to have_key(:booking_status)
           expect(booking).to have_key(:artist_name)
           expect(booking[:booking_status]).to be_an Integer
         end
       end
+      expect(venue1.bookings[0][:id]).to eq(artist1.id)
       expect(venue1.bookings[0][:artist_name]).to eq(artist1.name)
+      expect(venue1.bookings[1][:id]).to eq(artist4.id)
       expect(venue1.bookings[1][:artist_name]).to eq(artist4.name)
+      expect(venue2.bookings[0][:id]).to eq(artist2.id)
       expect(venue2.bookings[0][:artist_name]).to eq(artist2.name)
+      expect(venue2.bookings[1][:id]).to eq(artist4.id)
       expect(venue2.bookings[1][:artist_name]).to eq(artist4.name)
+      expect(venue3.bookings[0][:id]).to eq(artist1.id)
       expect(venue3.bookings[0][:artist_name]).to eq(artist1.name)
+      expect(venue3.bookings[1][:id]).to eq(artist3.id)
       expect(venue3.bookings[1][:artist_name]).to eq(artist3.name)
+      expect(venue3.bookings[2][:id]).to eq(artist5.id)
       expect(venue3.bookings[2][:artist_name]).to eq(artist5.name)
     end
   end
