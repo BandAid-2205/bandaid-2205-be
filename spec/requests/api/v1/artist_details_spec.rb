@@ -50,7 +50,7 @@ RSpec.describe 'Artist profile page' do
       expect(response.body).to include("Validation failed: Name can't be blank")
     end
 
-    it 'can destroy an Artist that has VenueArtists' do 
+    it 'can destroy an Artist that has VenueArtists' do
       venue_1 = create(:venue)
       venue_2 = create(:venue)
       artist_1 = create(:artist)
@@ -62,7 +62,7 @@ RSpec.describe 'Artist profile page' do
 
       expect(response).to be_successful
       expect(Artist.count).to eq 0
-      expect(VenueArtist.count).to eq 0 
+      expect(VenueArtist.count).to eq 0
       expect{ Artist.find(artist_1.id) }.to raise_error(ActiveRecord::RecordNotFound)
       expect{ Venue.find(va_1.id) }.to raise_error(ActiveRecord::RecordNotFound)
       expect{ Venue.find(va_2.id) }.to raise_error(ActiveRecord::RecordNotFound)
@@ -160,11 +160,15 @@ RSpec.describe 'Artist profile page' do
       expect(response.body).to include("Couldn't find Artist")
     end
 
-    it 'can the Artists venues information through the serializer' do
-      artist1 = create(:artist)
-      venues = create_list(:venue, 2)
+    it 'can the Artists venues and booking_status through the serializer' do
+      artists = create_list(:artist, 2)
+      artist1 = Artist.first
+      artist2 = Artist.second
+      venues = create_list(:venue, 4)
       venue1 = Venue.first
       venue2 = Venue.second
+      venue3 = Venue.third
+      venue4 = Venue.fourth
       v1a1 = VenueArtist.create!(
         artist_id: artist1.id,
         venue_id: venue1.id,
@@ -175,6 +179,21 @@ RSpec.describe 'Artist profile page' do
         venue_id: venue2.id,
         booking_status: ['pending', 'accepted', 'rejected'].sample
         )
+      v3a1 = VenueArtist.create!(
+        artist_id: artist1.id,
+        venue_id: venue3.id,
+        booking_status: ['pending', 'accepted', 'rejected'].sample
+        )
+      v2a2 = VenueArtist.create!(
+        artist_id: artist2.id,
+        venue_id: venue2.id,
+        booking_status: ['pending', 'accepted', 'rejected'].sample
+        )
+      v4a2 = VenueArtist.create!(
+        artist_id: artist2.id,
+        venue_id: venue4.id,
+        booking_status: ['pending', 'accepted', 'rejected'].sample
+        )
 
       get "/api/v1/artists/#{artist1.user_id}"
 
@@ -182,7 +201,7 @@ RSpec.describe 'Artist profile page' do
 
       artist_details = JSON.parse(response.body, symbolize_names: true)
       artist = artist_details[:data]
-
+require "pry"; binding.pry
       expect(artist[:id]).to eq(artist1.id.to_s)
       expect(artist[:type]).to eq('artist')
       expect(artist[:attributes][:name]).to eq(artist1.name)
@@ -191,11 +210,20 @@ RSpec.describe 'Artist profile page' do
       expect(artist[:attributes][:genre]).to eq(artist1.genre)
       expect(artist[:attributes][:image_path]).to eq(artist1.image_path)
       expect(artist[:attributes][:user_id]).to eq(artist1.user_id)
-      expect(artist[:attributes][:venues].count).to eq 2
+      expect(artist[:attributes][:bookings]).to be_an Array
+      expect(artist[:attributes][:bookings].count).to eq 3
+      artist[:attributes][:bookings].each do |booking|
+        expect(booking).to have_key(:venue_name)
+        expect(booking).to have_key(:booking_status)
+        expect(booking[:venue_name]).to_not eq(venue4.name)
+      end
+      expect(artist[:attributes][:venues].count).to eq 3
       expect(artist[:attributes][:venues][0][:name]).to eq(venue1.name)
       expect(artist[:attributes][:venues][1][:name]).to eq(venue2.name)
+      expect(artist[:attributes][:venues][2][:name]).to eq(venue3.name)
       expect(artist[:attributes][:venue_artists][0][:booking_status]).to eq(v1a1.booking_status)
       expect(artist[:attributes][:venue_artists][1][:booking_status]).to eq(v2a1.booking_status)
+      expect(artist[:attributes][:venue_artists][2][:booking_status]).to eq(v3a1.booking_status)
     end
   end
 end

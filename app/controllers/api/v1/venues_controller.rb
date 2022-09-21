@@ -1,5 +1,5 @@
 class Api::V1::VenuesController < ApplicationController
-  before_action :set_venue, only: [:show, :update, :destroy] #callback action 
+  before_action :set_venue, only: [:show, :update, :destroy] #callback action
 
   def index
     venues = Venue.all
@@ -26,7 +26,7 @@ class Api::V1::VenuesController < ApplicationController
   end
 
   private
-    def set_venue 
+    def set_venue
       @venue = Venue.find_by!(user_id: params[:id])
     end
 
