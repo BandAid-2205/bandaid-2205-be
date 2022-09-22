@@ -226,9 +226,8 @@ This project requires:
 
 * Example Response:
 
-  ```
-{
-    "data": {
+  ``` {
+     "data": {
         "id": "10",
         "type": "artist",
         "attributes": {
