@@ -69,13 +69,14 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
 #### Add a Venue’s information using the User ID associated with the Venue
 
 * `POST /api/v1/venues`
-                             
+| Request Body |
+| --- |                           
 | Key (* means required)| Value Type | 
 | --- | --- | 
 | name* | String |
 | location* | String |
 | phone* | String (US Numbers only)|
-| price | String (`$`, `$$`, `$$$`, or `$$$$`) |
+| price | String ('$', '$$', '$$$', or '$$$$') |
 | category | String |
 | rating | Integer | 
 | user_id* | Integer |
@@ -122,6 +123,17 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
 #### Update a Venue’s information using the User ID associated with the Venue
 
 * `PATCH /api/v1/venues/:user_id`
+| Request Body |
+| --- |
+| Key (* means required)| Value Type | 
+| --- | --- | 
+| name | String |
+| location | String |
+| phone | String (US Numbers only)|
+| price | String ('$', '$$', '$$$', or '$$$$') |
+| category | String |
+| rating | Integer | 
+| user_id | Integer |
   *  Example Request Body:
 
   ```
