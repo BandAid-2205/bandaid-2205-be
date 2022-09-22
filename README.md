@@ -391,7 +391,12 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
   #### Return 5 Venues whose information is stored in Yelp and matches the query’s keywords and the location
 
   * `GET /api/v1/yelp/search`
+  * Request Body 
   
+ | Key (* means required)| Value Data Type | 
+ | --- | --- | 
+ | term | String (e.g. name of venue, type of venue, etc.) |
+ | location | String (e.g., “New Orleans”, “NYC”, “4445 Lake St”, etc.) | 
 ## Schema
 
 <img width="600" alt="BandAid BE Schema" src="https://user-images.githubusercontent.com/101689311/191354037-5b5657d5-4d30-4ddd-b9f9-53d035d491f4.png">
