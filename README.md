@@ -145,7 +145,7 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
 
   *  Example Response:
 
-    ```
+  ```
     {
       "data": {
       "id": "5",
@@ -165,7 +165,7 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
      },
      "included": []
     }
-    ```
+  ```
 
 #### Destroy a Venue’s information using the User ID associated with the Venue; this also destroys all VenueArtists associated with the Venue
 
