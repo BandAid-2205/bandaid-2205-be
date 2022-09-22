@@ -35,7 +35,9 @@ This project requires:
   BandAid-2205-BE is deployed remotely on Herkou.
   Base URL: https://bandaid-be.herokuapp.com/
 ## Endpoints
+
 ### Venues
+
 #### Return a single Venue’s information based on the User ID associated with the Venue.
 
 * `GET /api/v1/venues/{{:user_id}}`
@@ -65,18 +67,20 @@ This project requires:
   ```
 
 #### Add a Venue’s information using the User ID associated with the Venue
-  * `POST /api/v1/venues`
+
+* `POST /api/v1/venues`
   *  Example Request Body:
+
   ```
- {
-    "name": "Trilly Cheesesteaks",
-    "location": "3735 Ulloa St, New Orleans, LA 70119",
-    "phone": "504-582-9057",
-    "price": "$",
-    "category": "restaurant",
-    "rating": 5,
-    "user_id": 10000
-  }
+      {
+        "name": "Trilly Cheesesteaks",
+        "location": "3735 Ulloa St, New Orleans, LA 70119",
+        "phone": "504-582-9057",
+        "price": "$",
+        "category": "restaurant",
+        "rating": 5,
+        "user_id": 10000
+      }
   ```
 
   * Example Response:
@@ -105,19 +109,20 @@ This project requires:
   ```
 
 #### Update a Venue’s information using the User ID associated with the Venue
-  * `PATCH /api/v1/venues/:user_id`
+
+* `PATCH /api/v1/venues/:user_id`
   *  Example Request Body:
 
-    ```
+  ```
     {
       "name": "Trilly",
       "category": "cheesesteak restaurant"
      }
-     ```
+  ```
 
   *  Example Response:
 
-    ```
+  ```
     {
       "data": {
       "id": "5",
@@ -137,17 +142,19 @@ This project requires:
      },
      "included": []
     }
-      ```
+    ```
 
-#### Destroy a Venue’s information using the User ID associated with the Venue; this also destroys all VenueArtists associated with the Venue  
+#### Destroy a Venue’s information using the User ID associated with the Venue; this also destroys all VenueArtists associated with the Venue
+
    * `DELETE /api/v1/venues/{{:user_id}}`
 
 ### Artists
 
 #### Return a single Artist’s information based on the User ID associated with the Artist.
-* `GET /api/v1/artists/{{:user_id}}`
 
-* Example Response:
+* `GET /api/v1/artists/{{:user_id}}`
+  * Example Response:
+
   ```
 {
    "data": {
@@ -168,13 +175,20 @@ This project requires:
    },
    "included": []
 }
-    ```
+  ```
 
 #### Create a new Artist
-  * `POST /api/v1/artists/`
+
+* `POST /api/v1/artists/`
   *  Example Request Body:
+
+
+  ```
+  {
+
   
   ```{
+
       "name": "TV Pole Shine",
       "location": "New Orleans",
       "bio": "TV Pole Shine makes music that spans the spectrum from lip-smacking to head-scratching. We call our music Spasm- Funk. Equal parts professional musicians and theatre makers, TV Pole Shine's catchy songs are rivaled only by their innovative choreography and radical insistence on audience participation.",
@@ -183,6 +197,9 @@ This project requires:
       "user_id": "10001"
   }
   ```
+
+
+
   * Example Response:
 
   ```
@@ -209,21 +226,22 @@ This project requires:
 
 
 #### Update an Artist’s information using the User ID associated with the Artist
+
 * `PATCH /api/v1/artists/{{:user_id}}`
-*  Example Request Body:
+  *  Example Request Body:
 
   ```
-  {
-    "name": "TV Pole Shine",
-    "location": "New Orleans, NY",
-    "bio": "TV Pole Shine makes music that spans the spectrum from lip-smacking to head-scratching. We call our music Spasm- Funk. Equal parts professional musicians and theatre makers, TV Pole Shine's catchy songs are rivaled only by their innovative choreography and radical insistence on audience participation.",
-    "genre": "jazz",
-    "image_path": "https://f4.bcbits.com/img/a1975691682_16.jpg",
-    "user_id": "10001"
-  }
+    {
+      "name": "TV Pole Shine",
+      "location": "New Orleans, NY",
+      "bio": "TV Pole Shine makes music that spans the spectrum from lip-smacking to head-scratching. We call our music Spasm- Funk. Equal parts professional musicians and theatre makers, TV Pole Shine's catchy songs are rivaled only by their innovative choreography and radical insistence on audience participation.",
+      "genre": "jazz",
+      "image_path": "https://f4.bcbits.com/img/a1975691682_16.jpg",
+      "user_id": "10001"
+    }
   ```
 
-* Example Response:
+  * Example Response:
 
   ``` {
      "data": {
@@ -247,6 +265,7 @@ This project requires:
   ```
 
 #### Destroy an Artist’s information using the User ID associated with the Artist; this also destroys all VenueArtists associated with the Artist  
+
 * `DELETE /api/v1/artists/{{:user_id}}`
       Status 204 No Content
 
