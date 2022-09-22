@@ -316,7 +316,7 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
 
   * `GET /api/v1/venues/:venue_user_id/venue_artists/:artist_user_id`
   
-  *  Example Request Body:
+  *  Example Response Body:
 
   ```
     {
@@ -376,6 +376,30 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
  | Key (* means required)| Value Data Type | 
  | --- | --- | 
  | booking_status* | Integer (0 = pending, 1 = accepted, 2 = rejected; defaults to 0) |
+    *  Example Request Body:
+        ```
+          {
+            "booking_status": 1
+          }
+        ```
+
+    * Example Response:
+
+    ```
+     {
+        "data": {
+            "id": "11",
+            "type": "venue_artist",
+            "attributes": {
+                "venue_id": 5,
+                "artist_id": 11,
+                "booking_status": "accepted"
+            }
+        }
+      }
+    ```
+
+
  
 ### Last.fm Artist Profile
   #### Return a single Artist’s information that is stored in Last.fm based on the Artist’s name
@@ -387,16 +411,100 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
  | --- | --- | 
  | query* | String (query must be an exact match to the Artist’s name as it is stored in Last.fm (e.g. “Dr. John” or    “dr. john” instead of “dr john” or “john”) |
 
-### Yelp Venue Profile
-  #### Return 5 Venues whose information is stored in Yelp and matches the query’s keywords and the location
+  * Example Response:
 
-  * `GET /api/v1/yelp/search`
-  * Request Body 
-  
- | Key (* means required)| Value Data Type | 
- | --- | --- | 
- | term | String (e.g. name of venue, type of venue, etc.) |
- | location | String (e.g., “New Orleans”, “NYC”, “4445 Lake St”, etc.) | 
+     ```
+      {
+         "data": {
+                  "id": "1",
+                  "type": "artist_poro",
+                  "attributes": {
+                      "name": "The Dirty Dozen Brass Band",
+                      "bio": "The Dirty Dozen Brass Band are a New Orleans style brass band which plays R&B and Traditional New Orleans music. Band Members include Charles Joseph, Keith Anderson, Roger Lewis, Kevin Harris, Lionel Batiste, Efrem Towns, Kirk Joseph, Jenell Marshall, Revert Andrews, Gregory Davis, and Raymond Weber. Original band formed in 1975.\n\nThe Dirty Dozen Brass Band \n\nCelebrating over 40 years since their founding in 1977, New Orleans-based Dirty Dozen Brass <a href=\"https://www.last.fm/music/The+Dirty+Dozen+Brass+Band\">Read more on Last.fm</a>",
+                      "genre": "jazz",
+                      "image_path": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+                  }
+              }
+            }
+          ```
+     ### Yelp Venue Profile
+       #### Return 5 Venues whose information is stored in Yelp and matches the query’s keywords and the location
+
+       * `GET /api/v1/yelp/search`
+       * Request Body 
+
+      | Key (* means required)| Value Data Type | 
+      | --- | --- | 
+      | term | String (e.g. name of venue, type of venue, etc.) |
+      | location | String (e.g., “New Orleans”, “NYC”, “4445 Lake St”, etc.) | 
+      * Example Response:
+
+          ```
+           {
+              "data": [
+             {
+                 "id": "RvTHIKHaPVVp8S9cihpi5w",
+                 "type": "venue_poro",
+                 "attributes": {
+                     "name": "The Spotted Cat Music Club",
+                     "rating": 4.5,
+                     "phone": "",
+                     "price": "$$",
+                     "location": "623 Frenchmen St  New Orleans, LA 70116",
+                     "category": "Jazz & Blues"
+                 }
+             },
+             {
+                 "id": "m5-FtgWRd4qA7j0vaOXiXQ",
+                 "type": "venue_poro",
+                 "attributes": {
+                     "name": "Preservation Hall",
+                     "rating": 4.5,
+                     "phone": "+15045222841",
+                     "price": "$$",
+                     "location": "726 Saint Peter St  New Orleans, LA 70116",
+                     "category": "Music Venues"
+                 }
+             },
+             {
+                 "id": "VHnxcKRk0qGxnW1jgVdwGw",
+                 "type": "venue_poro",
+                 "attributes": {
+                     "name": "Tipitina's",
+                     "rating": 4.5,
+                     "phone": "+15048958477",
+                     "price": "$$",
+                     "location": "501 Napoleon Ave  New Orleans, LA 70115",
+                     "category": "Music Venues"
+                 }
+             },
+             {
+                 "id": "7kHvPCBSmRgzDgjO9xXT1g",
+                 "type": "venue_poro",
+                 "attributes": {
+                     "name": "D.B.A. New Orleans",
+                     "rating": 4.0,
+                     "phone": "+15049423731",
+                     "price": "$$",
+                     "location": "618 Frenchmen St  New Orleans, LA 70116",
+                     "category": "Jazz & Blues"
+                 }
+             },
+             {
+                 "id": "v77_hh7gsbpSpjlzSKeq5w",
+                 "type": "venue_poro",
+                 "attributes": {
+                     "name": "One Eyed Jacks",
+                     "rating": 4.0,
+                     "phone": "+15045698361",
+                     "price": "$$",
+                     "location": "1104 Decatur St  New Orleans, LA 70116",
+                     "category": "Bars"
+                 }
+             }
+         ]
+       }
+     ```
 ## Schema
 
 <img width="600" alt="BandAid BE Schema" src="https://user-images.githubusercontent.com/101689311/191354037-5b5657d5-4d30-4ddd-b9f9-53d035d491f4.png">
