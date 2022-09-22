@@ -1,0 +1,459 @@
+{
+	"info": {
+		"_postman_id": "0c6e76ae-642b-4f10-98d0-6c5c9dea2985",
+		"name": "Mod 3 - BandAid",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22564717"
+	},
+	"item": [
+		{
+			"name": "VenueDetails",
+			"item": [
+				{
+					"name": "Create Venue Details",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "CONTENT_TYPE",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\": \"Trilly Cheesesteaks\",\n   \"location\": \"3735 Ulloa St, New Orleans, LA 70119\",\n   \"phone\": \"504-582-9057\", \n   \"price\": \"$\",\n   \"category\": \"restaurant\",\n   \"rating\": 5,\n   \"user_id\": 10000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bandaid-be.herokuapp.com/api/v1/venues",
+							"protocol": "https",
+							"host": [
+								"bandaid-be",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"venues"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "test",
+									"disabled": true
+								},
+								{
+									"key": "location",
+									"value": "123abc",
+									"disabled": true
+								},
+								{
+									"key": "phone",
+									"value": "1296010203",
+									"disabled": true
+								},
+								{
+									"key": "price",
+									"value": "$$$",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "Fund-Raising",
+									"disabled": true
+								},
+								{
+									"key": "rating",
+									"value": "4",
+									"disabled": true
+								},
+								{
+									"key": "user_id",
+									"value": "10000000",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Venue Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://bandaid-be.herokuapp.com/api/v1/venues/10000",
+							"protocol": "https",
+							"host": [
+								"bandaid-be",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"venues",
+								"10000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Venue Details",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\": \"Trilly\",\n   \"category\": \"cheesesteak restaurant\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bandaid-be.herokuapp.com/api/v1/venues/10000",
+							"protocol": "https",
+							"host": [
+								"bandaid-be",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"venues",
+								"10000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy Venue Details",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://bandaid-be.herokuapp.com/api/v1/venues/10000",
+							"protocol": "https",
+							"host": [
+								"bandaid-be",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"venues",
+								"10000"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LastFm ",
+			"item": [
+				{
+					"name": "Search for Artist Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://bandaid-be.herokuapp.com/api/v1/lastfm/search?query=the%20dirty%20dozen%20brass%20band",
+							"protocol": "https",
+							"host": [
+								"bandaid-be",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"lastfm",
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "the%20dirty%20dozen%20brass%20band"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "VenueArtist",
+			"item": [
+				{
+					"name": "Create VenueArtist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"venue_id\": 10000,\n   \"artist_id\": 10001\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bandaid-be.herokuapp.com/api/v1/venues/10000/venue_artists/10001",
+							"protocol": "https",
+							"host": [
+								"bandaid-be",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"venues",
+								"10000",
+								"venue_artists",
+								"10001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show VenueArtist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://bandaid-be.herokuapp.com/api/v1/venues/10000/venue_artists/10001",
+							"protocol": "https",
+							"host": [
+								"bandaid-be",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"venues",
+								"10000",
+								"venue_artists",
+								"10001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit VenueArtist",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"booking_status\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bandaid-be.herokuapp.com/api/v1/venues/10000/venue_artists/10001",
+							"protocol": "https",
+							"host": [
+								"bandaid-be",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"venues",
+								"10000",
+								"venue_artists",
+								"10001"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ArtistDetails",
+			"item": [
+				{
+					"name": "Create Artist Details",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\": \"TV Pole Shine\",\n   \"location\": \"New Orleans\", \n   \"genre\": \"funk\",\n   \"user_id\": 10001\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bandaid-be.herokuapp.com/api/v1/artists",
+							"protocol": "https",
+							"host": [
+								"bandaid-be",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"artists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Artist Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://bandaid-be.herokuapp.com/api/v1/artists/10001",
+							"protocol": "https",
+							"host": [
+								"bandaid-be",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"artists",
+								"10001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Artist Details",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"genre\": \"jazz\", \n   \"bio\": \"TV Pole Shine makes music that spans the spectrum from lip-smacking to head-scratching. We call our music Spasm- Funk. Equal parts professional musicians and theatre makers, TV Pole Shine's catchy songs are rivaled only by their innovative choreography and radical insistence on audience participation.\", \n   \"image_path\": \"https://f4.bcbits.com/img/a1975691682_16.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://bandaid-be.herokuapp.com/api/v1/artists/10001",
+							"protocol": "https",
+							"host": [
+								"bandaid-be",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"artists",
+								"10001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy Artist Details",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://bandaid-be.herokuapp.com/api/v1/artists/10001",
+							"protocol": "https",
+							"host": [
+								"bandaid-be",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"artists",
+								"10001"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Yelp",
+			"item": [
+				{
+					"name": "Search for Venue info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://bandaid-be.herokuapp.com/api/v1/yelp/search?term=music%20venue&location=New%20Orleans&limit=5",
+							"protocol": "https",
+							"host": [
+								"bandaid-be",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"yelp",
+								"search"
+							],
+							"query": [
+								{
+									"key": "term",
+									"value": "music%20venue"
+								},
+								{
+									"key": "location",
+									"value": "New%20Orleans"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
