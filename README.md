@@ -352,7 +352,7 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
       }
     ```
 
-    * Example Response:
+ * Example Response:
 
     ```
      {
