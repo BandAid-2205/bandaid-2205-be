@@ -6,6 +6,7 @@ RSpec.describe Venue, type: :model do
     it { should validate_presence_of(:location) }
     it { should validate_presence_of(:phone) }
     # it { should validate_format_of(:phone).with(/\d[0-9]\)*\z/) }
+    it { should allow_value(nil).for(:price) }
     it { should allow_value('$').for(:price) }
     it { should allow_value('$$').for(:price) }
     it { should allow_value('$$$').for(:price) }
@@ -101,7 +102,7 @@ RSpec.describe Venue, type: :model do
           expect(booking[:booking_status]).to be_an Integer
         end
       end
-    
+
       expect(venue1.bookings[0][:id]).to eq(artist1.user_id)
       expect(venue1.bookings[0][:artist_name]).to eq(artist1.name)
       expect(venue1.bookings[1][:id]).to eq(artist4.user_id)
