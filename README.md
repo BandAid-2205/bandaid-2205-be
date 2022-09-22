@@ -71,7 +71,7 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
 * `POST /api/v1/venues`
 * Request Body         
                   
- | Key (* means required)| Value Type | 
+ | Key (* means required)| Value Data Type | 
  | --- | --- | 
  | name* | String |
  | location* | String |
@@ -125,7 +125,7 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
 * `PATCH /api/v1/venues/:user_id`
 * Request Body 
 
-| Key (* means required)| Value Type | 
+| Key (* means required)| Value Data Type | 
 | --- | --- | 
 | name | String |
 | location | String |
@@ -205,7 +205,7 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
 * `POST /api/v1/artists/`
 * Request Body 
 
-| Key (* means required)| Value Type | 
+| Key (* means required)| Value Data Type | 
 | --- | --- | 
 | name* | String |
 | location* | String |
@@ -258,7 +258,7 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
 * `PATCH /api/v1/artists/{{:user_id}}`
 * Request Body 
 
-| Key (* means required)| Value Type | 
+| Key (* means required)| Value Data Type | 
 | --- | --- | 
 | name | String |
 | location | String |
@@ -315,6 +315,7 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
   #### Return a single VenueArtist based on the User ID of the Venue and the User ID of the Artist associated with the VenueArtist
 
   * `GET /api/v1/venues/:venue_user_id/venue_artists/:artist_user_id`
+  
   *  Example Request Body:
 
   ```
@@ -334,8 +335,16 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
   #### Create a VenueArtist based on the User ID of the Venue and the User ID of the Artist associated with the VenueArtist
 
   * `POST /api/v1/venues/:venue_user_id/venue_artists/:artist_user_id`
-    *  Example Request Body:
+  
+  *  Request Body 
+ 
+ | Key (* means required)| Value Data Type | 
+ | --- | --- | 
+ | venue_id* | Integer |
+ | artist_id* | Integer |
+ | booking_status | Integer (0 = pending, 1 = accepted, 2 = rejected; defaults to 0) |
 
+ *  Example Request Body:
     ```
       {
         "venue_id": 10000,
@@ -360,19 +369,29 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
     ```
 
   #### Update a VenueArtist based on the User ID of the Venue and the User ID of the Artist associated with the VenueArtist
-
+ 
   * `PATCH /api/v1/venues/:venue_user_id/venue_artists/:artist_user_id`
-
+  *  Request Body
+  
+ | Key (* means required)| Value Data Type | 
+ | --- | --- | 
+ | booking_status* | Integer (0 = pending, 1 = accepted, 2 = rejected; defaults to 0) |
+ 
 ### Last.fm Artist Profile
   #### Return a single Artist’s information that is stored in Last.fm based on the Artist’s name
 
   * `GET /api/v1/lastfm/search`
+  *  Request Body
+  
+ | Key (* means required)| Value Data Type | 
+ | --- | --- | 
+ | query* | String (query must be an exact match to the Artist’s name as it is stored in Last.fm (e.g. “Dr. John” or    “dr. john” instead of “dr john” or “john”) |
 
 ### Yelp Venue Profile
   #### Return 5 Venues whose information is stored in Yelp and matches the query’s keywords and the location
 
   * `GET /api/v1/yelp/search`
-
+  
 ## Schema
 
 <img width="600" alt="BandAid BE Schema" src="https://user-images.githubusercontent.com/101689311/191354037-5b5657d5-4d30-4ddd-b9f9-53d035d491f4.png">
