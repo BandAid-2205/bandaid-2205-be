@@ -416,17 +416,17 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
      ```
       {
          "data": {
-                  "id": "1",
-                  "type": "artist_poro",
-                  "attributes": {
-                      "name": "The Dirty Dozen Brass Band",
-                      "bio": "The Dirty Dozen Brass Band are a New Orleans style brass band which plays R&B and Traditional New Orleans music. Band Members include Charles Joseph, Keith Anderson, Roger Lewis, Kevin Harris, Lionel Batiste, Efrem Towns, Kirk Joseph, Jenell Marshall, Revert Andrews, Gregory Davis, and Raymond Weber. Original band formed in 1975.\n\nThe Dirty Dozen Brass Band \n\nCelebrating over 40 years since their founding in 1977, New Orleans-based Dirty Dozen Brass <a href=\"https://www.last.fm/music/The+Dirty+Dozen+Brass+Band\">Read more on Last.fm</a>",
-                      "genre": "jazz",
-                      "image_path": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
-                  }
+              "id": "1",
+              "type": "artist_poro",
+              "attributes": {
+                  "name": "The Dirty Dozen Brass Band",
+                  "bio": "The Dirty Dozen Brass Band are a New Orleans style brass band which plays R&B and Traditional New Orleans music. Band Members include Charles Joseph, Keith Anderson, Roger Lewis, Kevin Harris, Lionel Batiste, Efrem Towns, Kirk Joseph, Jenell Marshall, Revert Andrews, Gregory Davis, and Raymond Weber. Original band formed in 1975.\n\nThe Dirty Dozen Brass Band \n\nCelebrating over 40 years since their founding in 1977, New Orleans-based Dirty Dozen Brass <a href=\"https://www.last.fm/music/The+Dirty+Dozen+Brass+Band\">Read more on Last.fm</a>",
+                  "genre": "jazz",
+                  "image_path": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
               }
-            }
-          ```
+          }
+        }
+     ```
 
    ### Yelp Venue Profile
    #### Return 5 Venues whose information is stored in Yelp and matches the query’s keywords and the location
