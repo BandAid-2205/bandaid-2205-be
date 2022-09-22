@@ -155,27 +155,27 @@ This project requires:
 * `GET /api/v1/artists/{{:user_id}}`
   * Example Response:
 
-  ```
-{
-   "data": {
-       "id": "7",
-       "type": "artist",
-       "attributes": {
-           "name": "TV Pole Shine",
-           "location": "New Orleans",
-           "bio": "TV Pole Shine makes music that spans the spectrum from lip-smacking to head-scratching. We call our music Spasm- Funk. Equal parts professional musicians and theatre makers, TV Pole Shine's catchy songs are rivaled only by their innovative choreography and radical insistence on audience participation.",
-           "genre": "jazz",
-           "image_path": "https://f4.bcbits.com/img/a1975691682_16.jpg",
-           "user_id": 10001,
-           "bookings": [],
-           "venues": [],
-           "venue_artists": []
-       },
-       "relationships": {}
-   },
-   "included": []
-}
-  ```
+ ```
+   {
+     "data": {
+        "id": "7",
+        "type": "artist",
+        "attributes": {
+            "name": "TV Pole Shine",
+            "location": "New Orleans",
+            "bio": "TV Pole Shine makes music that spans the spectrum from lip-smacking to head-scratching. We call              our music Spasm- Funk. Equal parts professional musicians and theatre makers, TV Pole Shine's catchy                songs are rivaled only by their innovative choreography and radical insistence on audience                          participation.",
+             "genre": "jazz",
+             "image_path": "https://f4.bcbits.com/img/a1975691682_16.jpg",
+             "user_id": 10001,
+             "bookings": [],
+             "venues": [],
+             "venue_artists": []
+        },
+        "relationships": {}
+    },
+    "included": []
+   }
+   ```
 
 #### Create a new Artist
 
