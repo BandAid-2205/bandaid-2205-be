@@ -440,7 +440,7 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
       
    * Example Response:
 
-          ```
+         ```
            {
               "data": [
              {
@@ -503,9 +503,8 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
                      "category": "Bars"
                  }
              }
-         ]
-       }
-     ```
+         ]}
+         ```
 ## Schema
 
 <img width="600" alt="BandAid BE Schema" src="https://user-images.githubusercontent.com/101689311/191354037-5b5657d5-4d30-4ddd-b9f9-53d035d491f4.png">
