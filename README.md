@@ -70,15 +70,15 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
 
 * `POST /api/v1/venues`
                              
-| Key | Value Type | 
+| Key (* means required)| Value Type | 
 | --- | --- | 
-| name | String |
-| location | String |
-| phone | String |
-| price | String |
+| name* | String |
+| location* | String |
+| phone* | String (US Numbers only)|
+| price | String (`$`, `$$`, `$$$`, or `$$$$`) |
 | category | String |
 | rating | Integer | 
-| user_id | Integer |
+| user_id* | Integer |
   
   *  Example Request Body:
 
