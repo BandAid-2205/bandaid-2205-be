@@ -289,6 +289,30 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
   #### Create a VenueArtist based on the User ID of the Venue and the User ID of the Artist associated with the VenueArtist
 
   * `POST /api/v1/venues/:venue_user_id/venue_artists/:artist_user_id`
+    *  Example Request Body:
+
+    ```
+      {
+        "venue_id": 10000,
+        "artist_id": 10001
+      }
+    ```
+
+    * Example Response:
+
+    ```
+     {
+        "data": {
+           "id": "11",
+           "type": "venue_artist",
+           "attributes": {
+               "venue_id": 7,
+               "artist_id": 7,
+               "booking_status": "pending"
+           }
+       }
+      }
+    ```
 
   #### Update a VenueArtist based on the User ID of the Venue and the User ID of the Artist associated with the VenueArtist
 
