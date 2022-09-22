@@ -35,7 +35,7 @@ This project requires:
   BandAid-2205-BE is deployed remotely on Herkou.
   Base URL: https://bandaid-be.herokuapp.com/
 ## Endpoints
-
+A Postman collection JSON file is included in this repository as [Mod 3 - BandAid.postman_collection.json](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/Mod%203%20-%20BandAid.postman_collection.json) 
 ### Venues
 
 #### Return a single Venue’s information based on the User ID associated with the Venue.
