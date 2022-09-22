@@ -182,8 +182,13 @@ This project requires:
 * `POST /api/v1/artists/`
   *  Example Request Body:
 
+
   ```
   {
+
+  
+  ```{
+
       "name": "TV Pole Shine",
       "location": "New Orleans",
       "bio": "TV Pole Shine makes music that spans the spectrum from lip-smacking to head-scratching. We call our music Spasm- Funk. Equal parts professional musicians and theatre makers, TV Pole Shine's catchy songs are rivaled only by their innovative choreography and radical insistence on audience participation.",
@@ -192,6 +197,8 @@ This project requires:
       "user_id": "10001"
   }
   ```
+
+
 
   * Example Response:
 
@@ -236,9 +243,8 @@ This project requires:
 
   * Example Response:
 
-  ```
-{
-    "data": {
+  ``` {
+     "data": {
         "id": "10",
         "type": "artist",
         "attributes": {
@@ -255,13 +261,12 @@ This project requires:
         "relationships": {}
     },
     "included": []
-}
+  }
   ```
 
 #### Destroy an Artist’s information using the User ID associated with the Artist; this also destroys all VenueArtists associated with the Artist  
 
 * `DELETE /api/v1/artists/{{:user_id}}`
-
       Status 204 No Content
 
 ### VenueArtists
