@@ -65,24 +65,23 @@ This project requires:
   ```
 
 #### Add a Venue’s information using the User ID associated with the Venue
-   * `POST /api/v1/venues`
-     *  Example Request Body:
+  * `POST /api/v1/venues`
+  *  Example Request Body:
+  ```
+ {
+    "name": "Trilly Cheesesteaks",
+    "location": "3735 Ulloa St, New Orleans, LA 70119",
+    "phone": "504-582-9057",
+    "price": "$",
+    "category": "restaurant",
+    "rating": 5,
+    "user_id": 10000
+  }
+  ```
 
-    ```
-     {
-        "name": "Trilly Cheesesteaks",
-        "location": "3735 Ulloa St, New Orleans, LA 70119",
-        "phone": "504-582-9057",
-        "price": "$",
-        "category": "restaurant",
-        "rating": 5,
-        "user_id": 10000
-      }
-      ```
+  * Example Response:
 
-    * Example Response:
-
-    ```
+  ```
    {
        "data": {
           "id": "5",
@@ -103,11 +102,11 @@ This project requires:
      },
      "included": []
     }
-      ```
+  ```
 
 #### Update a Venue’s information using the User ID associated with the Venue
   * `PATCH /api/v1/venues/:user_id`
-    *  Example Request Body:
+  *  Example Request Body:
 
     ```
     {
@@ -116,7 +115,7 @@ This project requires:
      }
      ```
 
-    *  Example Response:
+  *  Example Response:
 
     ```
     {
@@ -144,10 +143,11 @@ This project requires:
    * `DELETE /api/v1/venues/{{:user_id}}`
 
 ### Artists
+
 #### Return a single Artist’s information based on the User ID associated with the Artist.
 * `GET /api/v1/artists/{{:user_id}}`
- * Example Response:
 
+* Example Response:
   ```
 {
    "data": {
@@ -172,8 +172,7 @@ This project requires:
 
 #### Create a new Artist
   * `POST /api/v1/artists/`
-    *  Example Request Body:
-
+  *  Example Request Body:
     ```
   {
       "name": "TV Pole Shine",
@@ -185,7 +184,7 @@ This project requires:
   }
     ```
 
-    * Example Response:
+  * Example Response:
 
   ```
     {
@@ -212,7 +211,7 @@ This project requires:
 
 #### Update an Artist’s information using the User ID associated with the Artist
 * `PATCH /api/v1/artists/{{:user_id}}`
-  *  Example Request Body:
+*  Example Request Body:
 
   ```
   {
@@ -225,7 +224,7 @@ This project requires:
   }
   ```
 
-  * Example Response:
+* Example Response:
 
   ```
 {
