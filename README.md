@@ -71,15 +71,15 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
 * `POST /api/v1/venues`
 * Request Body         
                   
-| Key (* means required)| Value Type | 
-| --- | --- | 
-| name* | String |
-| location* | String |
-| phone* | String (US Numbers only)|
-| price | String ('$', '$$', '$$$', or '$$$$') |
-| category | String |
-| rating | Integer | 
-| user_id* | Integer |
+ | Key (* means required)| Value Type | 
+ | --- | --- | 
+ | name* | String |
+ | location* | String |
+ | phone* | String (US Numbers only)|
+ | price | String ('$', '$$', '$$$', or '$$$$') |
+ | category | String |
+ | rating | Integer | 
+ | user_id* | Integer |
   
   *  Example Request Body:
 
@@ -145,7 +145,7 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
 
   *  Example Response:
 
-  ```
+    ```
     {
       "data": {
       "id": "5",
@@ -203,6 +203,17 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
 #### Create a new Artist
 
 * `POST /api/v1/artists/`
+* Request Body 
+
+| Key (* means required)| Value Type | 
+| --- | --- | 
+| name* | String |
+| location* | String |
+| bio | String |
+| genre* | String |
+| image_path | String (must be URL for GIF, JPG, or PNG image)|
+| user_id* | Integer |
+
   *  Example Request Body:
 
   ```
@@ -245,6 +256,17 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
 #### Update an Artist’s information using the User ID associated with the Artist
 
 * `PATCH /api/v1/artists/{{:user_id}}`
+* Request Body 
+
+| Key (* means required)| Value Type | 
+| --- | --- | 
+| name | String |
+| location | String |
+| bio | String |
+| genre | String |
+| image_path | String (must be URL for GIF, JPG, or PNG image)|
+| user_id | Integer |
+
   *  Example Request Body:
 
   ```
