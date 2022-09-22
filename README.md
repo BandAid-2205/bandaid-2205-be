@@ -376,15 +376,15 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
  | Key (* means required)| Value Data Type | 
  | --- | --- | 
  | booking_status* | Integer (0 = pending, 1 = accepted, 2 = rejected; defaults to 0) |
-    *  Example Request Body:
+ 
+  *  Example Request Body:
         ```
           {
             "booking_status": 1
           }
         ```
 
-    * Example Response:
-
+  * Example Response:
     ```
      {
         "data": {
