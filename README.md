@@ -427,10 +427,10 @@ A Postman collection JSON file is included in this repository as [Mod 3 - BandAi
               }
             }
           ```
-     ### Yelp Venue Profile
-       #### Return 5 Venues whose information is stored in Yelp and matches the query’s keywords and the location
 
-       * `GET /api/v1/yelp/search`
+   ### Yelp Venue Profile
+   #### Return 5 Venues whose information is stored in Yelp and matches the query’s keywords and the location
+   * `GET /api/v1/yelp/search`
        * Request Body 
 
       | Key (* means required)| Value Data Type | 
