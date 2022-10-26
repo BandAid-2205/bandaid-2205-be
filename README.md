@@ -6,16 +6,11 @@
 BandAid is an application that utilizes a [frontend](https://github.com/BandAid-2205/bandaid-2205-fe) and a [backend](https://github.com/BandAid-2205/bandaid-2205-be) application. The frontend Application creates a seamless user interface for artists and venues, implements OAuth for login, and makes API calls to the backend. The backend is responsible for receiving requests from the frontend, submitting requests to the Yelp and Last.fm APIs, and return digestible JSON data for the frontend to consume.
 
 ## Backend Table of Contents
-* [Local Setup](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#local-setup)
-* [Deployment](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#deployment)
-* [Endpoints](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#endpoints)
-  * [Venues](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#venues)
-  * [Artists](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#artists)
-  * [VenueArtists](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#venueartists)
-  * [Last.fm Artist Profile](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#lastfm-artist-profile)
-  * [Yelp Venue Profile](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#yelp-venue-profile)
-* [Schema](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#schema)
-* [Contributors](https://github.com/BandAid-2205/bandaid-2205-be/blob/main/README.md#contributors)
+* [Local Setup](https://github.com/malt-matcher/malt-matcher-BE/blob/main/README#local-setup)
+* [Deployment](https://github.com/malt-matcher/malt-matcher-BE/blob/main/README#deployment)
+* [Endpoints](https://github.com/malt-matcher/malt-matcher-BE/blob/main/README#endpoints)
+* [Schema](https://github.com/malt-matcher/malt-matcher-BE/blob/main/README#schema)
+* [Contributors](https://github.com/malt-matcher/malt-matcher-BE/blob/main/README#contributors)
 
 ## Local Setup
 This project requires:
